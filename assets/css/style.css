@@ -1,0 +1,23 @@
+:root{
+    --color1: #193498;
+    --color2: #113CFC;
+    --color3: #1597E5;
+    --color4: #69DADB;
+}
+@font-face {
+    font-family: "raleway";
+    src: url("../font/Raleway-VariableFont_wght.woff2") format("woff2"),
+    url("../font/Raleway-VariableFont_wght.woff") format("woff");
+}
+
+* {
+    font-family: raleway;
+    font-size: 2rem;
+}
+
+.beandereau {
+    font-weight: bold;
+    padding: 1rem;
+    background-color:  var(--color1);
+    color: white;
+}
