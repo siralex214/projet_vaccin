@@ -9,15 +9,153 @@
     src: url("../font/Raleway-VariableFont_wght.woff2") format("woff2"),
     url("../font/Raleway-VariableFont_wght.woff") format("woff");
 }
+a {
+    color: white;
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+    vertical-align: bottom;
+}
 
 * {
     font-family: raleway;
-    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-.beandereau {
-    font-weight: bold;
-    padding: 1rem;
-    background-color:  var(--color1);
+ul {
+    list-style: none;
+}
+
+/* header */
+
+header {
+    height: 100px;
+    background-color: var(--color1);
     color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left_header {
+    margin-left: 1rem;
+}
+.right_header div {
+    display: flex;
+    justify-content: space-evenly;
+    width: 500px;
+}
+
+.right_header a {
+    transition: all 0.7s;
+    padding: 1rem;
+    border-radius: 25px;
+    color: white;
+}
+
+.right_header a:hover {
+    transition: all 0.7s;
+    background-color: white;
+    color: black;
+}
+
+/* main */
+
+.wrap {
+    max-width: 100%;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+main {
+    display: flex;
+}
+main label {
+    color: white;
+    font-size: 1.4rem;
+}
+main h1 {
+    text-align: center;
+    font-size: 2.5rem;
+}
+.partie_left {
+    padding: 3rem;
+    width: 50%;
+}
+.partie_right {
+    padding: 3rem;
+    width: 50%;
+}
+
+.formulaire_connexion {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    background-color: var(--color1);
+    padding: 2rem;
+    border-radius: 30px;
+}
+
+.form_input {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+.form_input input {
+    margin-top: 1rem;
+    border: none;
+    border-radius: 15px;
+    padding-left: 1rem;
+    height: 40px;
+    font-size: 20px;
+}
+.force_droite {
+    text-align: end;
+}
+.formulaire_connexion .input_submit {
+    width: 200px;
+    background-color: #fff200;
+    border: none;
+    margin: 0 auto;
+    font-size: 25px;
+    padding: 1rem;
+    border-radius: 40px;
+}
+
+.password_forgot, .inscription a {
+    margin-top: 0.2rem;
+    text-decoration: underline;
+}
+.inscription {
+    margin-top: 0.5rem;
+    color: white;
+}
+
+.partie_left p {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1.3rem;
+    line-height: 2.7rem;
+}
+
+/* FOOTER */
+
+footer {
+    height: 100px;
+    display: flex;
+    background-color: var(--color1);
+    justify-content: center ;
+}
+
+footer div {
+    width: 440px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
