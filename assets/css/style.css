@@ -40,6 +40,9 @@ ul {
     margin: 0 auto;
     padding: 0 1rem;
 }
+.wrap h3 {
+    margin: 1rem 0rem;
+}
 input,textarea,select {
     width: 100%;
     padding: .5rem;
@@ -47,15 +50,30 @@ input,textarea,select {
 }
 label {
     display:block;
+    color: var(--color2);
 }
 textarea {
     resize: none;
     min-height: 100px;
 }
 .bouton {
-    background-color: yellow; 
+    background-color: #fff200;
+    border: none; 
+    border-radius: 40px;
 }
 ::placeholder {
     font-size: 1rem;
     opacity: 1;
+}
+
+/* PAGE MENTIONS */
+
+.mentions {
+    
+    margin: 0 auto;
+    max-width: 1200px;
+}
+.mentions h2 {
+    padding: 1.2rem;
+    color: var(--color2);
 }
