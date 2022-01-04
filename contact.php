@@ -1,5 +1,6 @@
 <?php 
-
+require_once "inclu/function.php";
+require_once "./inclu/pdo.php";
 
 
 ?>
@@ -14,7 +15,7 @@
     <title>Nous contacter</title>
 </head>
 <body>
-
+<?php include_once "./inclu/header.php"; ?>
     <div class="wrap_contact">
         <form action="" method="post">
             <h3>Nous contacter</h3>
@@ -34,6 +35,6 @@
     </div>
 
 
-
+    <?php include_once "./inclu/footer.php"; ?>
 </body>
 </html>

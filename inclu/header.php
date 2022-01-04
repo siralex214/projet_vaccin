@@ -4,10 +4,10 @@
     </section>
     <section class="right_header">
         <div>
-            <a href="">accueil</a>
+            <a href="index.php">accueil</a>
             <a href="">Inscriptions</a>
             <a href="">Page 3</a>
-            <a href="">Page 4</a>
+            <a href="./back/dashboard.php">Admin</a>
         </div>
     </section>
 </header>
