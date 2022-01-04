@@ -1,5 +1,6 @@
 <?php
 require_once "inclu/function.php";
+require_once "./inclu/pdo.php";
 ?>
 
 <!doctype html>
@@ -14,20 +15,8 @@ require_once "inclu/function.php";
     <title>SOS-vaccin | Page d'accueil |</title>
 </head>
 <body>
-<header>
-    <section class="left_header">
-        <img src="" alt="logo">
-    </section>
-    <section class="right_header">
-        <div>
-            <a href="">accueil</a>
-            <a href="">Inscriptions</a>
-            <a href="">Page 3</a>
-            <a href="">Page 4</a>
-        </div>
-    </section>
-</header>
-<main class="wrap">
+<?php include_once "./inclu/header.php"; ?>
+<main class="wrap_page_connexion">
     <section class="partie_left">
         <h1>Bienvenue sur SOS-Vaccin.</h1>
         <p>SOS-Vaccin est un site qui vous permet de gérer votre carnet de vaccination. Avec SOS-Vaccin vous n'oublierez jamais d'aller vous faire vacciner. Facile d'utilisation et totalement gratuit, penchez pour la simplicité grace a SOS-Vaccin! </p>
@@ -50,13 +39,6 @@ require_once "inclu/function.php";
         </form>
     </section>
 </main>
-<footer>
-    <div>
-        <a href="">Contact</a>
-        <a href="./mentions.php">Mentions légales</a>
-        <a href="">Les vaccins</a>
-        <a href="">FAQ</a>
-    </div>
-</footer>
+<?php include_once "./inclu/footer.php"; ?>
 </body>
 </html>
