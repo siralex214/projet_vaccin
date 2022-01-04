@@ -94,10 +94,10 @@ function validcodepostal($errors, $value, $key)
 }
 
 // vérifier que les champs ne soient pas vides
-function verif_empty($key, $errors)
+function verif_empty($key, $errors, $value)
 {
     if (empty($_POST[$key])) {
-        $errors[$key] = "Le champ $key est vide";
+        $errors[$key] = "Veuillez remplir ce champ";
     }
     return $errors;
 }
