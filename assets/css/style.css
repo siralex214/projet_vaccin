@@ -86,7 +86,7 @@ footer div {
 
 /* page de connexion */
 
-.wrap {
+.wrap_page_connexion {
     max-width: 100%;
     width: 1000px;
     margin: 0 auto;
@@ -173,7 +173,7 @@ main h1 {
 
 /* PAGE CONTACT */
 
-.wrap {
+.wrap_page_contact {
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
