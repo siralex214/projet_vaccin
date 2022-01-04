@@ -17,7 +17,7 @@ require_once "./inclu/pdo.php";
 <body>
 <?php include_once "./inclu/header.php"; ?>
     <div class="wrap_contact">
-        <form action="" method="post">
+        <form action="" method="post" id="formulaire_general">
             <h3>Nous contacter</h3>
             <div class="formulaire">
                 <label for="nom">Nom</label>

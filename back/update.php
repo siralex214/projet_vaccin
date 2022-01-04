@@ -82,7 +82,7 @@ if (!empty($_POST)) {
 </header>
 
     <div class="wrap_update">
-        <form action="#" method="post">
+        <form action="#" method="post" id="formulaire_general">
             <div class="range">
 
             <h2><a class="retour" href="dashboard.php">Retour</a></h2>

@@ -231,24 +231,24 @@ main h1 {
 .wrap_contact h3 {
     margin: 1rem 0rem;
 }
-#formulaire_contact input,textarea,select {
+#formulaire_general input,textarea,select {
     width: 100%;
     padding: .5rem;
     margin-bottom: .5rem;
     font-size: 1.2rem;
 }
 
-#formulaire_contact label {
+#formulaire_general label {
     display:block;
     color: white;
 }
 
-#formulaire_contact textarea {
+#formulaire_general textarea {
     resize: none;
     min-height: 100px;
 }
 
-#formulaire_contact .bouton {
+#formulaire_general .bouton {
     background-color: #fff200;
     border: none; 
     border-radius: 40px;
@@ -358,7 +358,6 @@ form {
     padding: 2rem;
     border-radius: 40px;
 }
-
 
 /* PAGE INSCRIPTIONS */
 
