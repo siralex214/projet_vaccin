@@ -173,13 +173,14 @@ main h1 {
 
 /* PAGE CONTACT */
 
-.wrap {
+.wrap_contact {
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
     padding: 0 1rem;
+  
 }
-.wrap h3 {
+.wrap_contact h3 {
     margin: 1rem 0rem;
 }
 input,textarea,select {

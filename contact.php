@@ -15,7 +15,7 @@
 </head>
 <body>
 
-    <div class="wrap">
+    <div class="wrap_contact">
         <form action="" method="post">
             <h3>Nous contacter</h3>
             <div class="formulaire">
