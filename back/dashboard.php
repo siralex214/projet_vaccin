@@ -3,7 +3,7 @@
 require_once "../inclu/pdo.php";
 
 
-if(!isset($_SESSION['role']) || $_SESSION['role'] === "role_USER" ) {
+if (!isset($_SESSION['role']) || $_SESSION['role'] === "role_USER") {
     header("Location : ../index.php");
     die();
 }
@@ -31,19 +31,19 @@ $users = $request->fetchAll(); // Tout Récupérer
 </head>
 
 <body>
-<header>
-    <section class="left_header">
-        <img src="" alt="logo">
-    </section>
-    <section class="right_header">
-        <div>
-            <a href="../index.php">accueil</a>
-            <a href="">Inscription</a>
-            <a href="">Page 3</a>
-            <a href="./dashboard.php">Admin</a>
-        </div>
-    </section>
-</header>
+    <header>
+        <section class="left_header">
+            <img src="" alt="logo">
+        </section>
+        <section class="right_header">
+            <div>
+                <a href="../index.php">accueil</a>
+                <a href="">Inscription</a>
+                <a href="">Page 3</a>
+                <a href="./dashboard.php">Admin</a>
+            </div>
+        </section>
+    </header>
     <div class="wrap">
 
         <table>
