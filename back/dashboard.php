@@ -3,6 +3,10 @@
 require_once "../inclu/pdo.php";
 
 
+if(!isset($_SESSION['role']) || $_SESSION['role'] === "role_USER" ) {
+    header("Location : ../index.php");
+}
+
 
 $request = $pdo->prepare("SELECT * FROM users"); //Préparer
 $request->execute(); //Executer 
