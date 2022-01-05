@@ -5,7 +5,9 @@
     <section class="right_header">
         <div>
             <a href="index.php">accueil</a>
+            <?php if (empty($_SESSION)){ ?>
             <a href="registration.php">Inscription</a>
+           <?php } ?>
             <a href="">Page 3</a>
             <a href="./back/dashboard.php">Admin</a>
         </div>

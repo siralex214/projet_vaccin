@@ -62,7 +62,7 @@ function validEmail($errors, $value, $key = 'mail')
 function validText($errors, $value, $key, $min, $max)
 {
     if (empty($value)) {
-        $errors[$key] = 'Veuillez remplir ce champ.';
+        $errors[$key] = 'Ce champ est obligatoire.';
     } elseif (mb_strlen($value) < $min) {
         $errors[$key] = 'caractère min:' . $min . '';
     } elseif (mb_strlen($value) > $max) {

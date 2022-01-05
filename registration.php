@@ -1,20 +1,25 @@
 <?php
 require_once "./inclu/pdo.php";
 require_once "./inclu/function.php";
-debug($_POST);
-
+debug($_SESSION);
+if (!empty($_SESSION['connecter'])){
+    header('location: index.php');
+}
+$registration = false ;
 if (!empty($_POST['submitted'])) {
     foreach ($_POST as $key => $value) {
         $_POST[$key] = xss($value);
     }
-
 // gestion des erreurs
     $errors = [];
-    $errors = validText($errors, $_POST['nom'], 'nom', 3, 100);
-    $errors = validText($errors, $_POST['prenom'], 'prenom', 3, 100);
+    $errors = validText($errors, $_POST['nom'], 'nom', 1, 100);
+    $errors = validText($errors, $_POST['prenom'], 'prenom', 1, 100);
     $errors = validEmail($errors, $_POST['email'], 'email');
     $errors = verif_empty('date_de_naissance',$errors,"date de naissance");
 
+    if (empty($_POST['cgu'])) {
+        $errors['cgu'] = "Veuillez acceptez les conditions général d'utilisation";
+    }
 
 // detection d'un mail dejà présent dans la table
     $query = $pdo->prepare("SELECT email FROM users WHERE email = :email");
@@ -35,21 +40,21 @@ if (!empty($_POST['submitted'])) {
     if (!isset($_POST['cgu'])) {
         $errors['cgu'] = "Veuillez accepter les conditions général d'utilisation.";
     }
-    debug($errors);
     if (count($errors) === 0) {
 //hash password
         $mdp = password_hash($_POST['password'], PASSWORD_ARGON2I);
 // traitement pdo
-        $sql = "";
+        $sql = "INSERT INTO `users`(`role`, `nom`, `prenom`, `date_de_naissance`, `email`, `pwd`, `CGU`) VALUES (:role, :nom, :prenom, :date_de_naissance, :mail ,:mdp, :cgu) ";
         $query = $pdo->prepare($sql);
+        $query->bindValue(':role', "role_USER", PDO::PARAM_STR);
         $query->bindValue(':nom', $_POST['nom'], PDO::PARAM_STR);
         $query->bindValue(':prenom', $_POST['prenom'], PDO::PARAM_STR);
         $query->bindValue(':date_de_naissance', $_POST['date_de_naissance'], PDO::PARAM_STR);
         $query->bindValue(':mail', $_POST['email'], PDO::PARAM_STR);
         $query->bindValue(':mdp', $mdp, PDO::PARAM_STR);
-        $query->bindValue(':cgu', $_POST['cgu'], PDO::PARAM_BOOL);
-        $query->bindValue(':role', "role_USER", PDO::PARAM_STR);
+        $query->bindValue(':cgu', $_POST['cgu'], PDO::PARAM_STR);
         $query->execute();
+        $registration = true;
     }
 }
 ?>
@@ -68,6 +73,8 @@ if (!empty($_POST['submitted'])) {
 <body>
 <?php include_once "./inclu/header.php"?>
 <main>
+    <?php if ($registration == false) { ?>
+
     <section class="wrap_page_inscription">
         <a style="color: black" href="index.php"><i class="fas fa-undo"></i> retour</a>
         <form  id="formulaire_inscription" class="formulaire_connexion" action="" method="post" enctype="multipart/form-data">
@@ -100,12 +107,12 @@ if (!empty($_POST['submitted'])) {
             </div>
             <div class="form_input">
                 <label for="email">email</label>
-                <input type="email" name="email" id="email" value="<?php if (!empty($_POST['email'])){ echo $_POST['email'];} ?>">
+                <input type="text" name="email" id="email" value="<?php if (!empty($_POST['email'])){ echo $_POST['email'];} ?>">
                 <?php if (isset($errors['email'])) { ?>
                     <span class="error"><?php viewError($errors,'email')?></span>
                 <?php } elseif (isset($errors['double_mail'])) { ?>
                     <span class="error"><?php viewError($errors,'double_mail')?></span>
-                    <?php } else { ?>
+                <?php } else { ?>
                     <span style="height: 20px"></span>
                 <?php } ?>
             </div>
@@ -128,15 +135,24 @@ if (!empty($_POST['submitted'])) {
             </div>
             <div class="form_input perso_input">
                 <input value="true" type="checkbox" name="cgu" id="cgu">
-                <label class="cgu" for="cgu"> J'accepte les conditions général d'utilisation</label>
+                <label class="cgu" for="cgu"> J'accepte <a style="text-decoration: underline;color: black" href="./mentions.php"> les conditions général d'utilisation</a></label>
             </div>
-                <span class="error">erreur</span>
+            <?php if (isset($errors['cgu'])) { ?>
+                <span class="error"><?php viewError($errors,'cgu')?></span>
+            <?php } else { ?>
+                <span style="height: 20px"></span>
+            <?php } ?>
             <div class="form_input">
                 <input class="submit_registration" type="submit" value="inscription" name="submitted">
-                <span class="error">erreur</span>
             </div>
         </form>
     </section>
+    <?php } else { ?>
+            <div class="wrap_page_inscription">
+                <h2>Inscriptions terminé</h2>
+                <a style="color: blue; text-decoration: underline" href="./index.php">Retour a la page de connexion.</a>
+            </div>
+    <?php } ?>
 </main>
 <?php include_once "./inclu/footer.php"?>
 </body>
