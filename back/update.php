@@ -9,6 +9,12 @@ if (!isset($_SESSION['id']))
 
 include('../inclu/pdo.php');
 
+
+if(!isset($_SESSION['role']) || $_SESSION['role'] === "role_USER" ) {
+    header("Location : ../index.php");
+}
+
+
 if(isset($_GET['id'])) {
 
     $id = $_GET['id'];

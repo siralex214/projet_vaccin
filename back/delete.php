@@ -16,6 +16,9 @@ $username = "root";
 $password = "";
 $dbname = "vaccination";
 
+if(!isset($_SESSION['role']) || $_SESSION['role'] === "role_USER" ) {
+  header("Location : ../index.php");
+}
 
 
 
