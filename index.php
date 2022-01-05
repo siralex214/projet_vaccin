@@ -44,7 +44,6 @@ $success = false;
 if (isset($_GET) && !empty($_GET['success'])) {
     $success = $_GET['success'];
 }
-
 ?>
 
 <!doctype html>
@@ -59,7 +58,7 @@ if (isset($_GET) && !empty($_GET['success'])) {
 </head>
 <body>
 <?php include_once "./inclu/header.php"; ?>
-<main>
+<main class="main_connexion">
     <section class="wrap_page_connexion">
         <section class="partie_left">
             <div class="contenue_left">
