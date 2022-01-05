@@ -5,6 +5,7 @@ require_once "../inclu/pdo.php";
 
 if(!isset($_SESSION['role']) || $_SESSION['role'] === "role_USER" ) {
     header("Location : ../index.php");
+    die();
 }
 
 

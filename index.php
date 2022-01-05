@@ -2,7 +2,14 @@
 require_once "inclu/function.php";
 require_once "./inclu/pdo.php";
 if (!empty($_SESSION['connecter']) && $_SESSION['connecter'] == "oui"){
-    header("location: ./user/accueil_user.php?id=". $_SESSION['id']);
+    if(!isset($_SESSION['role']) || $_SESSION['role'] === "role_ADMIN" ) {
+        echo "<script> window.location.href = './back/dashboard.php' </script>"; /* lorsque header ("location: " ...) beug */
+        die();
+    } else {
+        echo "<script> window.location.href = './user/accueil_user.php?id='". $_SESSION["id"] . "' </script>"; /* lorsque header ("location: " ...) beug */
+        die();
+
+    }
 }
 $errors = [];
 debug($_SESSION);
@@ -87,7 +94,9 @@ if (!empty($_POST['submitted'])) {
                     <?php } else { ?>
                         <span style="height: 20px"></span>
                     <?php } ?>
-                    <a class="password_forgot force_droite" href="">Mot de passe oublié?</a>
+                    <div class="force_droite">
+                    <a class="password_forgot" href="">Mot de passe oublié?</a>
+                    </div>
                 </div>
                 <input class="input_submit" type="submit" value="connexion" name="submitted">
                 <?php
