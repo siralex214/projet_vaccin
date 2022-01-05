@@ -1,7 +1,11 @@
 <?php
 require_once "inclu/function.php";
 require_once "./inclu/pdo.php";
+if (!empty($_SESSION['connecter']) && $_SESSION['connecter'] == "oui"){
+    header("location: ./user/accueil_user.php?id=". $_SESSION['id']);
+}
 $errors = [];
+debug($_SESSION);
 if (!empty($_POST['submitted'])) {
 
     foreach ($_POST as $key => $value) {
@@ -25,6 +29,7 @@ if (!empty($_POST['submitted'])) {
     }
     if (count($errors) === 0) {
         // tout c'est bien passé
+        $_SESSION['id'] = $user['id'];
         $_SESSION['email'] = $user['email'];
         $_SESSION['role'] = $user['role'];
         $_SESSION['nom'] = $user['nom'];
@@ -34,15 +39,10 @@ if (!empty($_POST['submitted'])) {
         //condition qui n'autorise la connexion qu'au personne avec un role défini
         if ($_SESSION['role'] === 'role_ADMIN') {
             header('location: ./superadmin.php');
-        } else {
-            header('location: ./connexion.php');
+        } elseif ($_SESSION['role'] == 'role_USER') {
+            header("location: ./user/accueil_user.php?id=". $_SESSION['id']);
         }
     }
-}
-
-$success = false;
-if (isset($_GET) && !empty($_GET['success'])) {
-    $success = $_GET['success'];
 }
 ?>
 
