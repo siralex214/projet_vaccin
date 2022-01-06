@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 03 jan. 2022 à 16:13
+-- Généré le : jeu. 06 jan. 2022 à 19:24
 -- Version du serveur : 10.4.21-MariaDB
 -- Version de PHP : 8.0.12
 
@@ -43,6 +43,7 @@ CREATE TABLE `mdp_forgot` (
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `role` varchar(20) NOT NULL,
+  `sexe` varchar(5) NOT NULL,
   `nom` varchar(50) NOT NULL,
   `prenom` varchar(50) NOT NULL,
   `date_de_naissance` date NOT NULL,
@@ -55,8 +56,10 @@ CREATE TABLE `users` (
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `role`, `nom`, `prenom`, `date_de_naissance`, `email`, `pwd`, `CGU`) VALUES
-(1, 'role_ADMIN', 'mouchon', 'alexis', '2021-06-09', 'kjzdhkj@dsh.com', 'jsqhdkqshdjsqk', 1);
+INSERT INTO `users` (`id`, `role`, `sexe`, `nom`, `prenom`, `date_de_naissance`, `email`, `pwd`, `CGU`) VALUES
+(1, 'role_ADMIN', 'homme', 'mouchon', 'alexis', '2021-06-09', 'admin@admin.com', '$argon2id$v=19$m=65536,t=4,p=1$ZGVEeHdxdDUzYVRtcmc0dQ$adl5h+pJz0pCm4lYH+VWpVJuvqftBlzASiZRN5NrLuA', 1),
+(2, 'role_USER', 'femme', 'mouchon', 'alexis', '2001-04-08', 'user@user.com', '$argon2i$v=19$m=65536,t=4,p=1$NlRscEMwbnA0TmE2UXl4Zg$WR7cQruho7YHgqdNUGiP/aWLRMcfUsLZxgDPn+ykdg4', 1),
+(3, 'role_USER', 'homme', 'mouchon', 'alexis', '0001-01-01', 'email1@gmail.com', '$argon2i$v=19$m=65536,t=4,p=1$R2QzU0V6dzN2d0wwRElLbw$NnElXX/0RD2M2jEFhgJJ4xNlVPmdUiQahIjav4hYooI', 0);
 
 -- --------------------------------------------------------
 
@@ -116,7 +119,7 @@ ALTER TABLE `mdp_forgot`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `vaccins`
