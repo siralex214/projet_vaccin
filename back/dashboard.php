@@ -3,10 +3,13 @@
 require_once "../inclu/pdo.php";
 
 
+if (!isset($_SESSION['role']) || $_SESSION['role'] === "role_USER") {
+    header("Location : ../index.php");
+    die();
+}
 
-$request = $pdo->prepare("SELECT * FROM users"); //Préparer
-$request->execute(); //Executer 
-$users = $request->fetchAll(); // Tout Récupérer
+
+
 
 
 
@@ -25,59 +28,35 @@ $users = $request->fetchAll(); // Tout Récupérer
     <title>Admin</title>
 </head>
 
-<body>
+<body class="background_dashboard">
 <header>
     <section class="left_header">
         <img src="" alt="logo">
     </section>
     <section class="right_header">
         <div>
-            <a href="../index.php">accueil</a>
-            <a href="">Inscription</a>
-            <a href="">Page 3</a>
-            <a href="./dashboard.php">Admin</a>
+            <a href="../index.php"><i class="fas fa-home"></i> Accueil</a>
+            <a href="./dashboard.php"><i class="fas fa-tools"></i> Admin</a>
         </div>
     </section>
 </header>
-    <div class="wrap">
+  
+    <div class="wrap_dashboard">
 
-        <table>
-            <thead>
-                <th>ID </th>
-                <th>Nom </th>
-                <th>Prenom</th>
-                <th>Date de naissance</th>
-                <th>Email</th>
-                <th>Show</th>
-                <th>Update</th>
-                <th>Delete</th>
-            </thead>
-            <?php foreach ($users as $user) { ?>
-                <div class="users">
-                    <div class="">
-                        <tbody>
-                            <tr>
-                                <td><?php echo $user['id'] ?></td>
-                                <td><?php echo $user['nom'] ?></td>
-                                <td><?php echo $user['prenom'] ?></td>
-                                <td><?php echo date("d/m/Y", strtotime($user['date_de_naissance'])) ?></td>
-                                <td><?php echo $user['email'] ?></td>
-                                <td><a href="show.php?id=<?= $user['id'] ?>"><i class="fas fa-eye"></i></a></td>
-                                <td><a href="update.php?id=<?= $user['id'] ?>"><i class="fas fa-edit"></i></a></td>
-                                <td><a href="delete.php?id=<?= $user['id'] ?>"><i class="fas fa-trash-alt"></i></a></td>
-                            </tr>
-                        </tbody>
-
-                        <?php
-                        ?>
-
-                    </div>
-                </div>
+        <div class="card1">
+            <a href="users.php"><i id="icones"class="fas fa-user fa-10x "></i><p>Utilisateurs</p></a>
+           
     </div>
-<?php } ?>
-</table>
-</div>
-
+        <div class="card2">
+            <a href="vaccins.php"><i id="icones"class="fas fa-syringe fa-10x"></i> <p>Vaccins</p></a>
+           
+        </div>
+        <div class="card3">
+            <a href=""><i id="icones"class="fas fa-chart-bar fa-10x"></i><p>Statistiques</p></a>
+            
+        </div>
+       
+    </div>
 
 
 </body>
