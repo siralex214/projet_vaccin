@@ -1,7 +1,6 @@
 <?php
 require_once "./inclu/pdo.php";
 require_once "./inclu/function.php";
-debug($_SESSION);
 if (!empty($_SESSION['connecter'])){
     header('location: index.php');
 }
