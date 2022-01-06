@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once "inclu/function.php";
 require_once "./inclu/pdo.php";
 
@@ -18,7 +18,7 @@ require_once "./inclu/pdo.php";
 </head>
 
 <body>
-<?php include_once "./inclu/header.php"; ?>
+    <?php include_once "./inclu/header.php"; ?>
     <section class="mentions">
 
         <h2>Définitions</h2>
