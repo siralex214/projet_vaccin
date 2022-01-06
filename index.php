@@ -46,6 +46,7 @@ if (!empty($_POST['submitted'])) {
             header("location: ./user/accueil_user.php?id=" . $_SESSION['id']);
         }
     }
+    
 }
 ?>
 

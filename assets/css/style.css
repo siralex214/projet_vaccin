@@ -53,6 +53,10 @@ header {
     justify-content: space-between;
     align-items: center;
 }
+header img {
+    width: 65px;
+    margin-left: 5rem;
+}
 
 .left_header {
     margin-left: 1rem;
@@ -76,6 +80,9 @@ header {
     background-color: white;
     color: black;
 }
+.right_header i {
+    margin-right: 3px;
+}
 
 /* FOOTER */
 
@@ -98,6 +105,9 @@ footer {
     background-color: var(--color1);
     justify-content: center;
 }
+footer i {
+    margin-right: 3px;
+}
 body {position: relative;}
 footer {position: absolute; bottom: 0;}
 
@@ -108,6 +118,18 @@ footer div {
     justify-content: space-between;
     align-items: center;
 }
+footer a:hover {
+    transition: all 0.7s;
+    background-color: white;
+    color: black;
+    padding: 15px;
+}
+footer a {
+    transition: all 0.7s;
+    border-radius: 25px;
+    color: white;
+}
+
 
 /* page de connexion */
 
@@ -119,7 +141,7 @@ footer div {
 }
 
 main {
-    padding-bottom: 100px;
+    padding-bottom: 180px;
 }
 .main_connexion {
     background: url("../img/background/vaccin-Covid.jpg") no-repeat center center/cover;
@@ -226,14 +248,32 @@ main h1 {
 
 .wrap_contact {
     width: 100%;
-    max-width: 500px;
+    max-width: 700px;
     margin: 0 auto;
     padding: 0 1rem;
     margin-top: 5rem;
+    
   
 }
-.wrap_contact h3 {
+.wrap_contact i {
+    margin-right: 5px;
+}
+.wrap_contact img {
+    height: 100%;
+    width: 100%;
+}
+.wrap_bloc {
+    display: flex;
+}
+ .background_contact {
+    background: url(../img/background/call.jpg) center/cover  ;
+   
+    
+   
+} 
+.wrap_contact h2 {
     margin: 1rem 0rem;
+    text-align: center;
 }
 #formulaire_general input,textarea,select {
     width: 100%;
@@ -245,6 +285,7 @@ main h1 {
 #formulaire_general label {
     display:block;
     color: white;
+    padding: 10px 0px;
 }
 
 #formulaire_general textarea {
@@ -258,10 +299,24 @@ main h1 {
     border-radius: 40px;
     margin: 1rem 0rem;
 }
+#formulaire_general .bouton:hover {
+   border: 2px solid blue;
+}
+.wrap_contact input[type=text], textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ffffff;
+}
+.wrap_contact input:focus, textarea:focus {
+    background-color: black;
+    color: white;
+}
 
 ::placeholder {
     font-size: 1rem;
     opacity: 1;
+    color: white;
+    
 }
 
 /* PAGE MENTIONS */
@@ -270,7 +325,11 @@ main h1 {
     
     margin: 0 auto;
     max-width: 1200px;
-    padding: 3rem 0rem;
+    padding: 3rem 4rem;
+    background: white;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    
 }
 .mentions a {
     color: black;
@@ -279,8 +338,71 @@ main h1 {
     padding: 1.2rem;
     color: var(--color2);
 }
+.background_mentions {
+    background-color: #EFEEEC;
+}
+.background_mentions footer {
+    position: initial;
+}
 /* PAGE DASHBOARD */
+.background_dashboard {
+    background-color: var(--color4);
+}
+.wrap_dashboard {
+    display: flex;
+    justify-content: center;
+    padding: 10rem;
+    gap: 10rem;
+    
+}
+.wrap_dashboard a {
+    color: black;
+}
+.wrap_dashboard p {
+    text-align: center;
+    padding: 1rem;
+    font-size: 2rem;
+    color: white;
+    
+}
+.card  a {
+    color: black;
 
+}
+.card1 {
+   
+    background-color: var(--color2);
+    padding: 4rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: transform .5s;
+}
+.card1:hover, .card2:hover, .card3:hover {
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Safari 3-8 */
+    transform: scale(1.2);
+    border: 5px solid black;
+}
+.card2 {
+    background-color:  #00b894;
+    padding: 4rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: transform .5s;
+}
+.card3 {
+    background-color:  rgb(195, 0, 255);
+    padding: 4rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: transform .5s;
+}
+#icones {
+    display: flex;
+    justify-content: center;
+    color: white;
+
+}
+
+
+/* PAGE USERS */
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -306,6 +428,9 @@ thead {
     background: var(--color3);
     color: white;
 }
+.vaccins thead {
+    background-color: #00B894;
+}
   .retour {
     display: flex;
     justify-content: center;
@@ -320,7 +445,17 @@ thead {
   .retour:hover {
       color: var(--color1);
   }
-  
+  .wrap_users a {
+      color: black;
+  }
+  .wrap_users h2 {
+      padding: 1rem 0rem;
+      
+  }
+  .wrap_users h1 {
+      text-align: center;
+      padding: 1rem 0rem;
+  }
   /* SHOW */
 
   .contenu {
@@ -354,12 +489,16 @@ thead {
     padding: 0 1rem;
     margin-top: 5rem;
 }
+.wrap_update h1 {
+    text-align: center;
+    padding: 1rem;
+}
 .wrap_update h3 {
     margin: 1rem 0rem;
 }
 form {
     background: var(--color3);
-    padding: 2rem;
+    padding: 3rem 2rem;
     border-radius: 40px;
 }
 

@@ -17,8 +17,8 @@ require_once "./inclu/pdo.php";
     <title>Mentions légales</title>
 </head>
 
-<body>
-    <?php include_once "./inclu/header.php"; ?>
+<body class="background_mentions">
+<?php include_once "./inclu/header.php"; ?>
     <section class="mentions">
 
         <h2>Définitions</h2>
@@ -239,8 +239,8 @@ require_once "./inclu/pdo.php";
         <p>
             Tout litige en relation avec l’utilisation du site <a href="https://SOSVaccin">https://SOSVaccin</a> est soumis au droit français.
             En dehors des cas où la loi ne le permet pas, il est fait attribution exclusive de juridiction aux tribunaux compétents de Rouen</p>
-    </section>
-    <?php include_once "./inclu/footer.php"; ?>
+        </section>
+        <?php include_once "./inclu/footer.php"; ?>
 </body>
 
 </html>
