@@ -31,7 +31,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] === "role_USER") {
 <body class="background_dashboard">
 <header>
     <section class="left_header">
-        <img src="" alt="logo">
+        <img src="../assets/img/background/mario.png" alt="logo">
     </section>
     <section class="right_header">
         <div>
