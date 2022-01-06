@@ -33,11 +33,12 @@ if (!empty($_POST['submitted'])) {
         $_SESSION['connecter'] = 'oui';
         //condition qui n'autorise la connexion qu'au personne avec un role défini
         if ($_SESSION['role'] === 'role_ADMIN') {
-            header('location: ./superadmin.php');
+            header('location: ./back/dashboard.php');
         } else {
-            header('location: ./connexion.php');
+            header('location: index.php');
         }
     }
+    
 }
 
 $success = false;

@@ -14,11 +14,12 @@ require_once "./inclu/pdo.php";
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Nous contacter</title>
 </head>
-<body>
+<body class="background_contact">
 <?php include_once "./inclu/header.php"; ?>
+<div class="wrap_bloc">
     <div class="wrap_contact">
         <form action="" method="post" id="formulaire_general">
-            <h3>Nous contacter</h3>
+            <h2>Nous contacter</h2>
             <div class="formulaire">
                 <label for="nom">Nom</label>
                 <input type="text" name="nom" id="nom" value="" >
@@ -28,11 +29,16 @@ require_once "./inclu/pdo.php";
 
                
                 <textarea name="message" id="" cols="30" rows="10" placeholder="Votre message..."></textarea>
+                
             </div>
 
             <input class="bouton" type="submit" value="Envoyer" name="submit">
         </form>
+      
     </div>
+  
+</div>
+
 
 
     <?php include_once "./inclu/footer.php"; ?>

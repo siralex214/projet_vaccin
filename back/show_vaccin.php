@@ -10,15 +10,6 @@ if (!empty($_GET["id"])) {
     $id = $_GET["id"];
 
     $requestUser = $pdo->prepare(
-        "SELECT * FROM users WHERE id = $id;"
-    );
-    $requestUser->execute();
-    $user = $requestUser->fetch();
-}
-if (!empty($_GET["id"])) {
-    $id = $_GET["id"];
-
-    $requestUser = $pdo->prepare(
         "SELECT * FROM vaccins WHERE id = $id;"
     );
     $requestUser->execute();
@@ -51,16 +42,17 @@ if (!empty($_GET["id"])) {
         </div>
     </section>
 </header>
-<div class="wrap_show">
+
+        <div class="wrap_show">
                 <div class="users2">
                     <h1>Profil de l'utilisateur</h1>
-                    <h2><a class="retour" href="users.php">Retour</a></h2>
+                    <h2><a class="retour" href="vaccins.php">Retour</a></h2>
                     <div class="contenu">
-                        <p class="text_user">Id : <?php echo $user['id'] ?></p>
-                        <p class="prix">Nom : <?php echo $user['nom'] ?> </p>
-                        <p class="prix"> Prenom : <?php echo $user['prenom'] ?></p>
-                        <p class="prix">Date de naissance : <?php echo $user['date_de_naissance'] ?> </p>
-                        <p class="ville">Email : <?php echo $user['email'] ?></p>
+                        <p class="text_user">Id : <?php echo $vaccin['id'] ?></p>
+                        <p class="prix">Utilisateur : <?php echo $vaccin['id_user'] ?> </p>
+                        <p class="prix"> Nom du vaccin : <?php echo $vaccin['nom_du_vaccin'] ?></p>
+                        <p class="prix">Date d'injection : <?php echo $vaccin['date_injection'] ?> </p>
+                        <p class="ville">Type de vaccin : <?php echo $vaccin['type_vaccin'] ?></p>
                     </div>
                 </div>
         
