@@ -26,7 +26,11 @@ $date = $date->format("d-m-Y");
   $diff = date_diff(date_create($dateNaissance), date_create($aujourdhui));
   $age = $diff->format('%y');
 
-  $last_vaccin = $pdo->prepare("SELECT * FROM ")
+  $id = $_SESSION['id'];
+  $last_vaccin = $pdo->prepare("SELECT * FROM vaccins WHERE id_user = $id ORDER BY date_injection DESC LIMIT 3");
+  $last_vaccin->execute();
+  $last_vaccin = $last_vaccin->fetchAll();
+  debug($last_vaccin);
 ?>
 
 <!doctype html>
@@ -55,11 +59,14 @@ $date = $date->format("d-m-Y");
             <div id="block1" class="one_box d_on">
                 <div class="last_vaccin">
                     <h2>Bonjour <?php if ($info_user['sexe'] == "femme") {echo "Madame";} else {echo "Monsieur";} echo " " . ucfirst($info_user['nom'])?></h2>
-                    <h3>Mes derniers vaccins</h3>
+                    <h3 style="margin-bottom: 0.5rem">Mes derniers vaccins</h3>
                     <ul>
-                        <li>covid</li>
-                        <li>covid</li>
-                        <li>covid</li>
+                        <?php foreach ($last_vaccin as $vaccin) :
+                            $date = new DateTime($vaccin['date_injection']);
+                            $vaccin['date_injection'] = $date->format("d-m-Y"); ?>
+                            <li style="margin-bottom: 0.5rem;">Vaccinné contre: <span style="color: white"><?= $vaccin['nom_du_vaccin']?></span>. Le <span style="color: white"><?= $vaccin['date_injection'] ?></span></li>
+                        <?php endforeach; ?>
+                        <li ><a style="color: blue; text-decoration: underline black" href="">Voir tous mes vaccins</a></li>
                     </ul>
                 </div>
             </div>
