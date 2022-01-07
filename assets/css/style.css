@@ -577,7 +577,6 @@ form {
     padding: 1rem;
     width: 750px;
     margin-left: 1rem;
-    height: 500px;
     background-color: var(--color3);
     border-radius: 10px;
 }
@@ -604,4 +603,29 @@ form {
     font-size: 1.5rem;
     margin-bottom: 0.7rem;
 
+}
+
+.titre_3 {
+    margin-top: 3rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.6rem;
+}
+
+/* PAGE MDP OUBLIéE */
+
+.wrap_forgot_mdp {
+    max-width: 100%;
+    width: 450px;
+    margin: 0 auto;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 15px;
+}
+
+#forgot_mdp ::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+input[type=submit] {
+    cursor: pointer;
 }

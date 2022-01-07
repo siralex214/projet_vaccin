@@ -57,6 +57,7 @@ if (!empty($_POST['submitted'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>SOS-Vaccin | Page d'accueil |</title>
 </head>
@@ -93,7 +94,7 @@ if (!empty($_POST['submitted'])) {
                             <span style="height: 20px"></span>
                         <?php } ?>
                         <div class="force_droite">
-                            <a class="password_forgot" href="">Mot de passe oublié?</a>
+                            <a class="password_forgot" href="./forgot_mdp.php">Mot de passe oublié?</a>
                         </div>
                     </div>
                     <input class="input_submit" type="submit" value="connexion" name="submitted">
