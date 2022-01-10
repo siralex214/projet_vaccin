@@ -75,14 +75,12 @@ if (!empty($_POST)) {
 
 <header>
     <section class="left_header">
-        <img src="" alt="logo">
+        <img src="../assets/img/background/mario.png" alt="logo">
     </section>
     <section class="right_header">
         <div>
-            <a href="../index.php">accueil</a>
-            <a href="">Inscriptions</a>
-            <a href="">Page 3</a>
-            <a href="./dashboard.php">Admin</a>
+            <a href="../index.php"><i class="fas fa-home"></i> Accueil</a>
+            <a href="./dashboard.php"><i class="fas fa-tools"></i> Admin</a>
         </div>
     </section>
 </header>
