@@ -25,10 +25,10 @@ $date_naissance = $date->format("d-m-Y");
   $dateNaissance = $info_user['date_de_naissance'];
   $aujourdhui = date("Y-m-d");
   $diff = date_diff(date_create($dateNaissance), date_create($aujourdhui));
-  $age = $diff->format('%y-%m');
+  $age = $diff->format('%y-%m-%d');
 
   $id = $_SESSION['id'];
-  $last_vaccin = $pdo->prepare("SELECT * FROM vaccins WHERE id_user = $id ORDER BY date_injection DESC LIMIT 3");
+  $last_vaccin = $pdo->prepare("SELECT * FROM vaccins WHERE id_user = $id ORDER BY date_injection asc LIMIT 3");
   $last_vaccin->execute();
   $last_vaccin = $last_vaccin->fetchAll();
 ?>
@@ -67,16 +67,44 @@ $date_naissance = $date->format("d-m-Y");
                             $vaccin['date_injection'] = $date->format("d-m-Y"); ?>
                             <li style="margin-bottom: 0.5rem;">Vaccinné contre: <span style="color: white"><?= $vaccin['nom_du_vaccin']?></span>. Le <span style="color: white"><?= $vaccin['date_injection'] ?></span></li>
                         <?php endforeach; ?>
-                        <li ><a style="color: blue; text-decoration: underline black" href="">Voir tous mes vaccins</a></li>
+                        <li ><a style="color: blue; text-decoration: underline black" href="<?php echo "./show_all_vaccin.php?id=". $_SESSION['id'] ?>" >Voir tous mes vaccins</a></li>
                     </ul>
                 </div>
                 <div class="prochain_vaccins">
                     <h3 class="titre_3">Mes prochaines vaccinations:</h3>
                     <ul>
                     <?php foreach ($last_vaccin as $vaccin) :
-                        $date = new DateTime($vaccin['date_injection']);
-                        $date->add(new DateInterval('P10M')); //Où 'P12M' indique 'Période de 12 Mois'
-                        $date_rappel = $date->format('d-m-Y');
+                        $date_injection = new DateTime($vaccin['date_injection']);
+
+                        $date_injection->add(new DateInterval('P10M'));               //Où 'P10M' indique 'Période de 10 Mois'
+
+                        $date_rappel = $date_injection->format('d-m-Y');               // date du prochain vaccin
+
+                        $date_injection->sub(new DateInterval('P20D'));               // supprime 20 jours pour permettre de faire un rappel par mail
+
+                        $limite_rappel = $date_injection->format('d-m-Y');             //stockage du jour du jour du rappel de vaccination
+
+                        $aujourdhui_format_fr = date("d-m-Y");                         // récupere la date d'aujourd'hui au format FR
+
+                        $aujourdhui_format_fr = strtotime($aujourdhui_format_fr);             // transforme le jour en timestamp
+
+
+                        $limite_rappel = strtotime($limite_rappel);                            // transforme le jour en timestamp
+
+                        if ($aujourdhui_format_fr >= $limite_rappel) {
+
+                            $dest = "sosvaccin@gmail.com";
+                            $sujet = "Email de test";
+                            $corp = "<span>Bonjour,</span><br>
+                                    <span style='color: red'> Ceci est un mail automatique, merci de pas y répondre</span>
+                            ";
+                            $headers = "From: sosvaccin@gmail.com";
+                            if (mail($dest, $sujet, $corp, $headers)) {
+                                echo "Email envoyé avec succès à $dest ...";
+                            } else {
+                                echo "Échec de l'envoi de l'email...";
+                            }
+                        }
                         ?>
                         <li style="margin-bottom: 0.5rem">Prochaine vaccination le: <span style="color: white"> <?= $date_rappel ?></span> contre: <span style="color: white"><?= $vaccin ['type_vaccin'] ?></span></li>
                     <?php endforeach; ?>
