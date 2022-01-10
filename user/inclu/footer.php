@@ -9,4 +9,3 @@
         <a href="">FAQ</a>
     </div>
 </footer>
-

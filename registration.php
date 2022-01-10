@@ -6,6 +6,7 @@ if (!empty($_SESSION['connecter'])){
 }
 $registration = false ;
 if (!empty($_POST['submitted'])) {
+    debug($_POST);
     foreach ($_POST as $key => $value) {
         $_POST[$key] = xss($value);
     }
@@ -15,6 +16,7 @@ if (!empty($_POST['submitted'])) {
     $errors = validText($errors, $_POST['prenom'], 'prenom', 1, 100);
     $errors = validEmail($errors, $_POST['email'], 'email');
     $errors = verif_empty('date_de_naissance',$errors,"date de naissance");
+    $errors = verif_empty('sexe',$errors);
 
     if (empty($_POST['cgu'])) {
         $errors['cgu'] = "Veuillez acceptez les conditions général d'utilisation";
@@ -43,7 +45,7 @@ if (!empty($_POST['submitted'])) {
 //hash password
         $mdp = password_hash($_POST['password'], PASSWORD_ARGON2I);
 // traitement pdo
-        $sql = "INSERT INTO `users`(`role`, `nom`, `prenom`, `date_de_naissance`, `email`, `pwd`, `CGU`) VALUES (:role, :nom, :prenom, :date_de_naissance, :mail ,:mdp, :cgu) ";
+        $sql = "INSERT INTO `users`(`role`, `nom`, `prenom`, `date_de_naissance`, `email`, `pwd`, `CGU`, `sexe`) VALUES (:role, :nom, :prenom, :date_de_naissance, :mail ,:mdp, :cgu, :sexe) ";
         $query = $pdo->prepare($sql);
         $query->bindValue(':role', "role_USER", PDO::PARAM_STR);
         $query->bindValue(':nom', $_POST['nom'], PDO::PARAM_STR);
@@ -52,6 +54,7 @@ if (!empty($_POST['submitted'])) {
         $query->bindValue(':mail', $_POST['email'], PDO::PARAM_STR);
         $query->bindValue(':mdp', $mdp, PDO::PARAM_STR);
         $query->bindValue(':cgu', $_POST['cgu'], PDO::PARAM_STR);
+        $query->bindValue(':sexe', $_POST['sexe'], PDO::PARAM_STR);
         $query->execute();
         $registration = true;
     }
@@ -73,10 +76,20 @@ if (!empty($_POST['submitted'])) {
 <?php include_once "./inclu/header.php"?>
 <main>
     <?php if ($registration == false) { ?>
-
     <section class="wrap_page_inscription">
         <a style="color: black" href="index.php"><i class="fas fa-undo"></i> retour</a>
         <form  id="formulaire_inscription" class="formulaire_connexion" action="" method="post" enctype="multipart/form-data">
+            <div style="margin: 0 auto" class="">
+                <label for="homme">Homme</label>
+                <input style="margin-right: 3rem; margin-bottom: 2rem" type="radio" name="sexe" id="homme" value="homme">
+                <label for="femme">Femme</label>
+                <input type="radio" name="sexe" id="femme" value="femme">
+                <?php if (isset($errors['sexe'])) { ?>
+                    <span class="error"><?php viewError($errors,'sexe')?></span>
+                <?php } else { ?>
+                    <span style="height: 20px"></span>
+                <?php } ?>
+            </div>
             <div class="form_input">
                 <label for="nom">nom</label>
                 <input type="text" name="nom" id="nom" value="<?php if (!empty($_POST['nom'])){ echo $_POST['nom'];} ?>">

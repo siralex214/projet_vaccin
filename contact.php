@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once "inclu/function.php";
 require_once "./inclu/pdo.php";
 
@@ -7,6 +7,7 @@ require_once "./inclu/pdo.php";
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,4 +45,5 @@ require_once "./inclu/pdo.php";
 
     <?php include_once "./inclu/footer.php"; ?>
 </body>
+
 </html>

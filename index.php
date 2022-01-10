@@ -1,11 +1,11 @@
 <?php
 require_once "inclu/function.php";
 require_once "./inclu/pdo.php";
-if (!empty($_SESSION['connecter']) && $_SESSION['connecter'] == "oui"){
-    if(!isset($_SESSION['role']) || $_SESSION['role'] === "role_ADMIN" ) {
-        //echo "<script> window.location.href = './back/dashboard.php' </script>"; /* lorsque header ("location: " ...) beug */
-    } else {
-        echo "<script> window.location.href = './user/accueil_user.php?id='". $_SESSION["id"] . "' </script>"; /* lorsque header ("location: " ...) beug */
+if (!empty($_SESSION['connecter']) && $_SESSION['connecter'] == "oui") {
+    if (!empty($_SESSION['role']) && $_SESSION['role'] == "role_ADMIN") {
+        echo "<script> window.location.href = './back/dashboard.php' </script>"; /* lorsque header ("location: " ...) beug */
+    } elseif (!empty($_SESSION['role']) && $_SESSION['role'] == "role_USER") {
+        echo "<script> window.location.href = './user/accueil_user.php?id=" . $_SESSION["id"] . "'</script>"; /* lorsque header ("location: " ...) beug */
     }
 }
 $errors = [];
@@ -57,6 +57,7 @@ if (!empty($_POST['submitted'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>SOS-Vaccin | Page d'accueil |</title>
 </head>
@@ -93,21 +94,21 @@ if (!empty($_POST['submitted'])) {
                             <span style="height: 20px"></span>
                         <?php } ?>
                         <div class="force_droite">
-                        <a class="password_forgot" href="">Mot de passe oublié?</a>
+                            <a class="password_forgot" href="./forgot_mdp.php">Mot de passe oublié?</a>
                         </div>
                     </div>
-                <input class="input_submit" type="submit" value="connexion" name="submitted">
-                <?php
-                if (isset($errors['invalid'])){ ?>
-                    <span class="error perso_error_submit"> <?php viewError($errors,'invalid'); ?></span>
-                <?php } else { ?>
-                    <span style="height: 20px"></span>
-                <?php } ?>
-                <div class="inscription force_droite">
-                    <span>Pas encore inscrit? <a href="registration.php">Cliquez ici</a></span>
-                </div>
-            </form>
-        </section>
+                    <input class="input_submit" type="submit" value="connexion" name="submitted">
+                    <?php
+                    if (isset($errors['invalid'])) { ?>
+                        <span class="error perso_error_submit"> <?php viewError($errors, 'invalid'); ?></span>
+                    <?php } else { ?>
+                        <span style="height: 20px"></span>
+                    <?php } ?>
+                    <div class="inscription force_droite">
+                        <span>Pas encore inscrit? <a href="registration.php">Cliquez ici</a></span>
+                    </div>
+                </form>
+            </section>
     </main>
     <?php include_once "./inclu/footer.php"; ?>
 </body>
