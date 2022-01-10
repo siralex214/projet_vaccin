@@ -92,7 +92,7 @@ if (!empty($_POST['submitted'])) {
             </div>
             <div class="form_input">
                 <label for="nom">nom</label>
-                <input type="text" name="nom" id="nom" value="<?php if (!empty($_POST['nom'])){ echo $_POST['nom'];} ?>">
+                <input autofocus type="text" name="nom" id="nom" value="<?php if (!empty($_POST['nom'])){ echo $_POST['nom'];} ?>">
                 <?php if (isset($errors['nom'])) { ?>
                 <span class="error"><?php viewError($errors,'nom')?></span>
                 <?php } else { ?>
@@ -130,7 +130,7 @@ if (!empty($_POST['submitted'])) {
             </div>
             <div class="form_input">
                 <label for="password">mot de passe</label>
-                <input autofocus autocomplete="new-password" type="password" name="password" id="password">
+                <input autocomplete="new-password" type="password" name="password" id="password">
                 <?php if (isset($errors['password'])) { ?>
                     <span class="error"><?php viewError($errors,'password')?></span>
                 <?php } else { ?>

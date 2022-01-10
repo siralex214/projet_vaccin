@@ -3,6 +3,7 @@ require_once "../inclu/pdo.php";
 require_once "../inclu/function.php";
 
 
+
 if (empty($_SESSION['connecter'])) {
     header("location: ../index.php");
     die();
@@ -15,6 +16,8 @@ if ($_SESSION['id'] != $_GET['id']) {
     header("location: ./accueil_user.php?id=" . $_SESSION['id']);
     die();
 }
+
+
 
 $info_user = $pdo->prepare("SELECT * FROM users where id =" . $_SESSION['id']);
 $info_user->execute();
@@ -77,9 +80,6 @@ $last_vaccin = $last_vaccin->fetchAll();
                                         style="color: white"><?= $vaccin['nom_du_vaccin'] ?></span>. Le <span
                                         style="color: white"><?= $vaccin['date_injection'] ?></span></li>
                         <?php endforeach; ?>
-                        <li><a style="color: blue; text-decoration: underline black"
-                               href="<?php echo "./show_all_vaccin.php?id=" . $_SESSION['id'] ?>">Voir tous mes
-                                vaccins</a></li>
                     </ul>
                 </div>
                 <div class="prochain_vaccins">
@@ -104,7 +104,6 @@ $last_vaccin = $last_vaccin->fetchAll();
                             $limite_rappel = strtotime($limite_rappel);                            // transforme le jour en timestamp
 
                             if ($aujourdhui_format_fr >= $limite_rappel) {
-
                                 $dest = "sosvaccin@gmail.com";
                                 $sujet = "Rappel de vaccination";
                                 $corp = "Bonjour,
@@ -113,19 +112,17 @@ $last_vaccin = $last_vaccin->fetchAll();
                                     Vous êtes éligible pour effectuer une nouvelle dose de vaccin contre: ". $vaccin['type_vaccin']."
                                     Rendez vous sur: http://localhost/projet_vaccin/index.php pour plus d'information.";
                                 $headers = "From: sosvaccin@gmail.com";
-                                if (mail($dest, $sujet, $corp, $headers)) {
-                                    echo "Email envoyé avec succès à $dest ...";
-                                } else {
-                                    echo "Échec de l'envoi de l'email...";
-                                }
+//                                if (mail($dest, $sujet, $corp, $headers)) {
+//                                } else {
+//                                }
                             }
                             ?>
                             <li style="margin-bottom: 0.5rem">Prochaine vaccination le: <span
                                         style="color: white"> <?= $date_rappel ?></span> contre: <span
                                         style="color: white"><?= $vaccin ['type_vaccin'] ?></span></li>
                         <?php endforeach; ?>
-                        <li><a style="color: blue; text-decoration: underline black" href="">Voir tous mes rappels de
-                                vaccinations.</a></li>
+                        <li><a style="color: blue; text-decoration: underline black"
+                               href="./show_all_vaccin.php">Voir tous mes vaccins</a></li>
                     </ul>
                 </div>
             </div>
@@ -137,7 +134,7 @@ $last_vaccin = $last_vaccin->fetchAll();
                     <p>Age: <?= $date_naissance ?> (<?= $age ?> ans)</p>
                     <p>Email: <?= $info_user['email'] ?></p>
                     <p style="font-size:1rem ;margin-top: 0.5rem"><a
-                                style="color: blue; text-decoration: underline black" href="">Modifier les informations
+                                style="color: blue; text-decoration: underline black" href="./update_info_user.php">Modifier mes informations
                             personnelles.</a></p>
                 </div>
             </div>
