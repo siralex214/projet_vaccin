@@ -437,10 +437,12 @@ thead {
     color: black;
     background: var(--color4);
     color: white;
-    width: 100px;
+    width: 260px;
     padding: 10px;
     margin: 0 auto;
+    text-align: center;
     border-radius: 40px;
+    font-size: 24px;
   }
   .retour:hover {
       color: var(--color1);
@@ -455,6 +457,12 @@ thead {
   .wrap_users h1 {
       text-align: center;
       padding: 1rem 0rem;
+  }
+  .back_button {
+      
+  }
+  .back_button a {
+      color: black;
   }
   /* SHOW */
 
