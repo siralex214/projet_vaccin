@@ -44,7 +44,10 @@ $vaccins = $request->fetchAll(); // Tout Récupérer
     <div class="wrap_users">
         <div class="vaccins">
         <h1>Liste des vaccins</h1>
-        <h2><a class="retour" href="dashboard.php">Retour</a></h2>
+        <div class="okay">
+            <h2><a class="retour" href="addVaccin.php">Ajouter un vaccin</a></h2>
+            <h2 class="retour"><a class="" href="dashboard.php">Retour</a>
+        </div>
 
         <table>
             <thead>
