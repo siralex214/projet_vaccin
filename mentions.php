@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once "inclu/function.php";
 require_once "./inclu/pdo.php";
 
@@ -13,11 +13,12 @@ require_once "./inclu/pdo.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Mentions légales</title>
 </head>
 
-<body>
+<body class="background_mentions">
 <?php include_once "./inclu/header.php"; ?>
     <section class="mentions">
 
@@ -239,8 +240,8 @@ require_once "./inclu/pdo.php";
         <p>
             Tout litige en relation avec l’utilisation du site <a href="https://SOSVaccin">https://SOSVaccin</a> est soumis au droit français.
             En dehors des cas où la loi ne le permet pas, il est fait attribution exclusive de juridiction aux tribunaux compétents de Rouen</p>
-    </section>
-    <?php include_once "./inclu/footer.php"; ?>
+        </section>
+        <?php include_once "./inclu/footer.php"; ?>
 </body>
 
 </html>

@@ -28,11 +28,11 @@ if ($conn->connect_error) {
 }
 ;
 
-$sql = "DELETE FROM users WHERE id = $id";
+$sql = "DELETE FROM vaccins WHERE id = $id";
  
 
 if ($conn->query($sql) === TRUE) {
-    header('Location: users.php');
+    header('Location: vaccins.php');
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }

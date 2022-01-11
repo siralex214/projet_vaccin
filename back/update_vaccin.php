@@ -19,33 +19,33 @@ if(isset($_GET['id'])) {
 
     $id = $_GET['id'];
     
-    $query = $pdo->prepare("SELECT * FROM users WHERE id = $id");
+    $query = $pdo->prepare("SELECT * FROM vaccins WHERE id = $id");
     $query->execute();
-    $users = $query->fetch();
+    $vaccins = $query->fetch();
 }
 
 
 if (!empty($_POST)) {
     if (
-        empty($_POST["nom"]) || empty($_POST["prenom"])
-        || empty($_POST["date_de_naissance"]) || empty($_POST["email"])
+        empty($_POST["nom_du_vaccin"]) || empty($_POST["date_injection"])
+        || empty($_POST["type_vaccin"]) 
         
     ) {
         $error = true;
     } else {
 
-        $nom = $_POST["nom"];
-        $prenom = $_POST["prenom"];
-        $date = $_POST["date_de_naissance"];
-        $email = $_POST["email"];
+        $nom = $_POST["nom_du_vaccin"];
+        $date = $_POST["date_injection"];
+        $type = $_POST["type_vaccin"];
+        
 
         $requestCreation = $pdo->prepare(
-            "UPDATE users SET nom= '$nom', prenom = '$prenom', date_de_naissance = '$date', email = '$email'  WHERE id = $id"
+            "UPDATE vaccins SET nom_du_vaccin= '$nom', date_injection = '$date',  type_vaccin = '$type'  WHERE id = $id"
         ); 
 
-        // UPDATE `users` SET `nom`='[test]',`prenom`='[Marcus]',`email`='[marcus27@gmail.com]',`pwd`='[marcus1234]' WHERE id = 2
+        
         if ($requestCreation->execute()) {
-            header('Location: users.php');
+            header('Location: vaccins.php.');
         } else {
             echo "Erreur Execution Requête";
         }
@@ -89,18 +89,16 @@ if (!empty($_POST)) {
         <form action="#" method="post" id="formulaire_general">
             <div class="range">
         <h1>Modification du profil</h1>
-            <h2><a class="retour" href="users.php">Retour</a></h2>
-                <label for="nom">Nom</label>
-                <input step="any" name="nom" id="nom" value=" <?php if(!empty($users['nom']))  { echo $users['nom']; }  ?>">
+            <h2><a class="retour" href="vaccins.php">Retour</a></h2>
+                <label for="nom_du_vaccin">Nom</label>
+                <input step="any" name="nom_du_vaccin" id="nom_du_vaccin" value=" <?php if(!empty($vaccins['nom_du_vaccin']))  { echo $vaccins['nom_du_vaccin']; }  ?>">
 
-                <label for="prenom">Prenom</label>
-                <input type="text" name="prenom" id="prenom" value=" <?php if(!empty($users['prenom']))  { echo $users['prenom']; }  ?>">
+                <label for="date_injection">Date d'injection</label>
+                <input type="date" name="date_injection" id="date_injection" value=" <?php if(!empty($vaccins['date_injection']))  { echo $vaccins['date_injection']; }  ?>">
 
-                <label for="date_de_naissance">Date de naissance</label>
-                <input type="date" name="date_de_naissance" id="date_de_naissance" value="<?php if(!empty($users['date_de_naissance']))  { echo $users['date_de_naissance']; }  ?>">
+                <label for="type_vaccin">Type de vaccin</label>
+                <input type="text" name="type_vaccin" id="type_vaccin" value="<?php if(!empty($vaccins['type_vaccin']))  { echo $vaccins['type_vaccin']; }  ?>">
 
-                <label for="email">Email</label>
-                <input type="text" name="email" id="email" value="<?php if(!empty($users['email']))  { echo $users['email']; }  ?>">
                 
             </div>
 
