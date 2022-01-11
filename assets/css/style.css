@@ -8,7 +8,7 @@
 @font-face {
     font-family: "raleway";
     src: url("../font/Raleway-VariableFont_wght.woff2") format("woff2"),
-        url("../font/Raleway-VariableFont_wght.woff") format("woff");
+    url("../font/Raleway-VariableFont_wght.woff") format("woff");
 }
 a {
     color: white;
@@ -53,6 +53,7 @@ header {
     justify-content: space-between;
     align-items: center;
 }
+
 header img {
     width: 65px;
     margin-left: 5rem;
@@ -551,8 +552,9 @@ form {
 }
 .show_pop_up_mdp {
     position: absolute;
-    bottom: 20%;
-    right: 15%;
+    bottom: 340px;
+    right: 330px;
+    width: 257px;
     padding: 1rem;
     background-color: white;
     border: 2px solid black;
@@ -614,6 +616,48 @@ form {
     margin-top: 3rem;
     margin-bottom: 0.5rem;
     font-size: 1.6rem;
+}
+
+/* PAGE SHOW VACCINS*/
+
+.wrap_show_vaccin {
+    background-color: var(--color1);
+    padding: 1rem;
+    margin: 0 auto;
+    margin-top: 1rem;
+    max-width: 100%;
+    width: 1000px;
+    /*border: 1px solid black;*/
+    border-radius: 15px;
+}
+
+.sous_wrap_vaccin {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.one_show {
+    border-radius: 15px;
+    background-color: var(--color3);
+    margin: 1rem;
+    /*border: 1px solid red;*/
+    /*height: 200px;*/
+    width: 400px;
+    padding: 1rem;
+}
+/* pagination */
+.pagination {
+    text-align: center;
+}
+.bouton_pagination {
+    margin-right: 0.5rem;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.bouton_clicker {
+    margin-right: 0.5rem;
+    color: grey;
 }
 
 /* PAGE MDP OUBLIéE */
