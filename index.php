@@ -34,6 +34,7 @@ if (!empty($_POST['submitted'])) {
         // tout c'est bien passé
         $_SESSION['id'] = $user['id'];
         $_SESSION['email'] = $user['email'];
+        $_SESSION['sexe'] = $user['sexe'];
         $_SESSION['role'] = $user['role'];
         $_SESSION['nom'] = $user['nom'];
         $_SESSION['prenom'] = $user['prenom'];
@@ -75,7 +76,7 @@ if (!empty($_POST['submitted'])) {
             <section class="partie_right">
                 <form action="" method="post" enctype="multipart/form-data" class="formulaire_connexion">
                     <div class="form_input">
-                        <label for="email">email</label>
+                        <label autofocus for="email">email</label>
                         <input type="text" name="email" id="email">
                         <?php
                         if (isset($errors['email'])) { ?>

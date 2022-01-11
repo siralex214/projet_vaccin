@@ -8,7 +8,7 @@
 @font-face {
     font-family: "raleway";
     src: url("../font/Raleway-VariableFont_wght.woff2") format("woff2"),
-        url("../font/Raleway-VariableFont_wght.woff") format("woff");
+    url("../font/Raleway-VariableFont_wght.woff") format("woff");
 }
 a {
     color: white;
@@ -53,6 +53,7 @@ header {
     justify-content: space-between;
     align-items: center;
 }
+
 header img {
     width: 65px;
     margin-left: 5rem;
@@ -81,7 +82,7 @@ header img {
     color: black;
 }
 .right_header i {
-    margin-right: 3px;
+    margin-right: 5px;
 }
 
 /* FOOTER */
@@ -458,9 +459,6 @@ thead {
       text-align: center;
       padding: 1rem 0rem;
   }
-  .back_button {
-      
-  }
   .back_button a {
       color: black;
   }
@@ -554,8 +552,9 @@ form {
 }
 .show_pop_up_mdp {
     position: absolute;
-    bottom: 20%;
-    right: 15%;
+    bottom: 340px;
+    right: 330px;
+    width: 257px;
     padding: 1rem;
     background-color: white;
     border: 2px solid black;
@@ -619,6 +618,48 @@ form {
     font-size: 1.6rem;
 }
 
+/* PAGE SHOW VACCINS*/
+
+.wrap_show_vaccin {
+    background-color: var(--color1);
+    padding: 1rem;
+    margin: 0 auto;
+    margin-top: 1rem;
+    max-width: 100%;
+    width: 1000px;
+    /*border: 1px solid black;*/
+    border-radius: 15px;
+}
+
+.sous_wrap_vaccin {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.one_show {
+    border-radius: 15px;
+    background-color: var(--color3);
+    margin: 1rem;
+    /*border: 1px solid red;*/
+    /*height: 200px;*/
+    width: 400px;
+    padding: 1rem;
+}
+/* pagination */
+.pagination {
+    text-align: center;
+}
+.bouton_pagination {
+    margin-right: 0.5rem;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.bouton_clicker {
+    margin-right: 0.5rem;
+    color: grey;
+}
+
 /* PAGE MDP OUBLIéE */
 
 .wrap_forgot_mdp {
@@ -636,4 +677,260 @@ form {
 
 input[type=submit] {
     cursor: pointer;
+}
+
+/* BURGER */
+
+#check, .checkbtn {
+    display: none;
+}
+.burger {
+    display: flex;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width : 600px) { /* MOBILE */
+
+    /* NAVBAR */
+    header img {
+        margin-left: 1rem;
+    }
+    .nav_burger {
+        position: relative;
+    }
+
+    .checkbtn {
+        display: block;
+        margin-right: 5rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    ul {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 100px; 
+        left: -200%;
+        text-align: center;
+        transition: all .5s;
+    }
+    nav ul li {
+        display: block;
+        margin: 50px;
+        line-height: 30px;
+        
+    }
+    nav ul li a {
+        font-size: 20px;
+        color: black;
+    }
+    #check:checked~ul {
+        left: 0;
+    }
+    .burger {
+        background-color: var(--color3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #password {
+        position: inherit;
+    }
+     /* Login */
+
+     .wrap_page_connexion {
+        width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+    #formulaire_inscription .form_input {
+        width: 100%; 
+      
+   }
+    .partie_left, .partie_right {
+       
+        padding: 0rem 30px;
+        width: 400px;
+        
+    }
+    .partie_left p {
+        text-align: center;
+        margin-top: 2rem;
+        font-size: inherit;
+        line-height: inherit;
+    }
+    main h1 {
+        font-size: 27px;
+    }
+    main label {
+        font-size: initial;
+    }
+    footer div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12px;
+        gap: 14px;
+        padding: 0rem 15px;
+       
+    }
+
+    /* INSCRIPTION */
+
+    .wrap_page_inscription {
+        max-width: 90%;
+        width: 550px;
+        margin: 0 auto;
+        margin-bottom: 2rem;
+        padding-top: 1rem;
+    }
+
+       /* Dashboard */
+
+       header {
+       
+        width: 660px;
+        
+    }
+    .card1, .card2, .card3 {
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+    .wrap_dashboard {
+
+        display: flex;
+        flex-direction: column;
+    }
+    input#date_de_naissance {
+        width: 100%;
+    }
+    label.cgu {
+        margin-left: 1rem;
+    }
+}
+
+@media screen and (max-width:350px) { /* PETIT MOBILE */
+
+    
+    
+   /* NAVBAR */
+
+.checkbtn {
+    display: block;
+    margin-right: 8rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.contenue_left {
+    
+    margin: 0rem 1rem;
+}
+
+.formulaire_connexion {
+    
+    margin: 2rem 1.5rem;
+} 
+/* INSCRIPTION */
+
+.wrap_page_inscription {
+    max-width: 100%;
+    width: 550px;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    padding-top: 1rem;
+} 
+ #formulaire_inscription .form_input {
+    width: 100%; 
+  
+}
+label.cgu {
+    margin-left: 1rem;
+    font-size: 10px;
+} 
+ input#date_de_naissance {
+    width: 100%;
+}    
+ i.fas.fa-undo {
+    margin-left: 1rem;
+}
+   
+
+}
+
+@media screen and (min-width:900px) { /* TABLETTE */
+
+    main {
+        padding-bottom: 44vh;
+    }
+    .formulaire_connexion {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+        background-color: var(--color1);
+        padding: 2.8rem;
+        border-radius: 30px;
+    }
+}
+@media (min-width:760px) and (max-width:800px)   { /* IPAD PRO */
+
+    .contenue_left {
+        background-color: rgba(157, 162, 194, 0.62);
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        margin-left: 1rem;
+        border-radius: 30px;
+    }
+    main {
+        padding-bottom: 256px;
+    }
+   
+}
+
+@media screen and (max-width:290px) { /* Galaxy Fold */
+
+    /* LOGIN */
+    .formulaire_connexion {
+        margin: 2rem 2.5rem;
+    }
+    .contenue_left {
+        margin: 0rem 2.5rem;
+    }
+    
+    form label, form a, .inscription.force_droite {
+        font-size: 14px;
+    }
+    .formulaire_connexion .input_submit {
+        width: 135px;
+        font-size: 14px;
+        padding: 0.5rem;
+        
+       
+    }
+    .partie_left p {
+        font-size: 14px;
+    }
+    main h1 {
+        font-size: 20px;
+    }
+    .checkbtn {
+        margin-right: 10rem  
+    }
+    ul {
+        top: 99px;
+    }
+    /* INSCRIPTION */
+    .form_input input {
+        font-size: 14px;      
+}
 }
