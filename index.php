@@ -1,14 +1,13 @@
 <?php
 require_once "inclu/function.php";
 require_once "./inclu/pdo.php";
-if (!empty($_SESSION['connecter']) && $_SESSION['connecter'] == "oui"){
-    if(!isset($_SESSION['role']) || $_SESSION['role'] === "role_ADMIN" ) {
+if (!empty($_SESSION['connecter']) && $_SESSION['connecter'] == "oui") {
+    if (!isset($_SESSION['role']) || $_SESSION['role'] === "role_ADMIN") {
         echo "<script> window.location.href = './back/dashboard.php' </script>"; /* lorsque header ("location: " ...) beug */
         die();
     } else {
-        echo "<script> window.location.href = './user/accueil_user.php?id='". $_SESSION["id"] . "' </script>"; /* lorsque header ("location: " ...) beug */
+        echo "<script> window.location.href = './user/accueil_user.php?id='" . $_SESSION["id"] . "' </script>"; /* lorsque header ("location: " ...) beug */
         die();
-
     }
 }
 $errors = [];
@@ -45,7 +44,7 @@ if (!empty($_POST['submitted'])) {
         $_SESSION['connecter'] = 'oui';
         //condition qui n'autorise la connexion qu'au personne avec un role défini
         if ($_SESSION['role'] === 'role_ADMIN') {
-            header('location: ./superadmin.php');
+            header('location: ./back/dashboard.php');
         } elseif ($_SESSION['role'] == 'role_USER') {
             header("location: ./user/accueil_user.php?id=" . $_SESSION['id']);
         }
@@ -105,21 +104,21 @@ if (!empty($_POST['submitted'])) {
                         <span style="height: 20px"></span>
                     <?php } ?>
                     <div class="force_droite">
-                    <a class="password_forgot" href="">Mot de passe oublié?</a>
+                        <a class="password_forgot" href="">Mot de passe oublié?</a>
                     </div>
-                </div>
-                <input class="input_submit" type="submit" value="connexion" name="submitted">
-                <?php
-                if (isset($errors['invalid'])){ ?>
-                    <span class="error perso_error_submit"> <?php viewError($errors,'invalid'); ?></span>
-                <?php } else { ?>
-                    <span style="height: 20px"></span>
-                <?php } ?>
-                <div class="inscription force_droite">
-                    <span>Pas encore inscrit? <a href="registration.php">Cliquez ici</a></span>
-                </div>
-            </form>
-        </section>
+                    </div>
+                    <input class="input_submit" type="submit" value="connexion" name="submitted">
+                    <?php
+                    if (isset($errors['invalid'])) { ?>
+                        <span class="error perso_error_submit"> <?php viewError($errors, 'invalid'); ?></span>
+                    <?php } else { ?>
+                        <span style="height: 20px"></span>
+                    <?php } ?>
+                    <div class="inscription force_droite">
+                        <span>Pas encore inscrit? <a href="registration.php">Cliquez ici</a></span>
+                    </div>
+                </form>
+            </section>
     </main>
     <?php include_once "./inclu/footer.php"; ?>
 </body>
