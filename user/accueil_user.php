@@ -141,7 +141,7 @@ if (!empty($_POST['submitted'])) {
                             $date = new DateTime($vaccin['date_injection']);
                             $vaccin['date_injection'] = $date->format("d-m-Y"); ?>
                             <li style="margin-bottom: 0.5rem;">Vaccinné contre: <span
-                                        style="color: white"><?= $vaccin['nom_du_vaccin'] ?></span>. Le <span
+                                        style="color: white"><?= $vaccin['type_vaccin'] ?></span>. Le <span
                                         style="color: white"><?= $vaccin['date_injection'] ?></span></li>
                         <?php endforeach; ?>
                     </ul>
