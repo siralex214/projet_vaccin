@@ -10,6 +10,7 @@
     src: url("../font/Raleway-VariableFont_wght.woff2") format("woff2"),
     url("../font/Raleway-VariableFont_wght.woff") format("woff");
 }
+
 a {
     color: white;
     text-decoration: none;
@@ -27,6 +28,9 @@ img {
     padding: 0;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+}
+body {
+    overflow-x: hidden;
 }
 
 ul {
@@ -81,6 +85,7 @@ header img {
     background-color: white;
     color: black;
 }
+
 .right_header i {
     margin-right: 5px;
 }
@@ -106,11 +111,19 @@ footer {
     background-color: var(--color1);
     justify-content: center;
 }
+
 footer i {
     margin-right: 3px;
 }
-body {position: relative;}
-footer {position: absolute; bottom: 0;}
+
+body {
+    position: relative;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+}
 
 
 footer div {
@@ -119,12 +132,14 @@ footer div {
     justify-content: space-between;
     align-items: center;
 }
+
 footer a:hover {
     transition: all 0.7s;
     background-color: white;
     color: black;
     padding: 15px;
 }
+
 footer a {
     transition: all 0.7s;
     border-radius: 25px;
@@ -144,6 +159,7 @@ footer a {
 main {
     padding-bottom: 180px;
 }
+
 .main_connexion {
     background: url("../img/background/vaccin-Covid.jpg") no-repeat center center/cover;
 
@@ -163,6 +179,7 @@ main h1 {
     margin-top: 4rem;
     width: 50%;
 }
+
 .contenue_left {
     background-color: rgba(157, 162, 194, 0.62);
     padding: 3rem;
@@ -199,8 +216,8 @@ main h1 {
     padding-left: 1rem;
     height: 40px;
     font-size: 20px;
-    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
-    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 
 .force_droite {
@@ -215,9 +232,10 @@ main h1 {
     font-size: 25px;
     padding: 1rem;
     border-radius: 40px;
-    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
-    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
+
 .formulaire_connexion .input_submit:hover {
     cursor: pointer;
 }
@@ -253,30 +271,35 @@ main h1 {
     margin: 0 auto;
     padding: 0 1rem;
     margin-top: 5rem;
-    
-  
+
+
 }
+
 .wrap_contact i {
     margin-right: 5px;
 }
+
 .wrap_contact img {
     height: 100%;
     width: 100%;
 }
+
 .wrap_bloc {
     display: flex;
 }
- .background_contact {
-    background: url(../img/background/call.jpg) center/cover  ;
-   
-    
-   
-} 
+
+.background_contact {
+    background: url(../img/background/call.jpg) center/cover;
+
+
+}
+
 .wrap_contact h2 {
     margin: 1rem 0rem;
     text-align: center;
 }
-#formulaire_general input,textarea,select {
+
+#formulaire_general input, textarea, select {
     width: 100%;
     padding: .5rem;
     margin-bottom: .5rem;
@@ -284,7 +307,7 @@ main h1 {
 }
 
 #formulaire_general label {
-    display:block;
+    display: block;
     color: white;
     padding: 10px 0px;
 }
@@ -296,18 +319,21 @@ main h1 {
 
 #formulaire_general .bouton {
     background-color: #fff200;
-    border: none; 
+    border: none;
     border-radius: 40px;
     margin: 1rem 0rem;
 }
+
 #formulaire_general .bouton:hover {
-   border: 2px solid blue;
+    border: 2px solid blue;
 }
+
 .wrap_contact input[type=text], textarea {
     background: transparent;
     border: none;
     border-bottom: 1px solid #ffffff;
 }
+
 .wrap_contact input:focus, textarea:focus {
     background-color: black;
     color: white;
@@ -317,84 +343,98 @@ main h1 {
     font-size: 1rem;
     opacity: 1;
     color: white;
-    
+
 }
 
 /* PAGE MENTIONS */
 
 .mentions {
-    
+
     margin: 0 auto;
     max-width: 1200px;
     padding: 3rem 4rem;
     background: white;
     margin-top: 5rem;
     margin-bottom: 5rem;
-    
+
 }
+
 .mentions a {
     color: black;
 }
+
 .mentions h2 {
     padding: 1.2rem;
     color: var(--color2);
 }
+
 .background_mentions {
     background-color: #EFEEEC;
 }
+
 .background_mentions footer {
     position: initial;
 }
+
 /* PAGE DASHBOARD */
 .background_dashboard {
     background-color: var(--color4);
 }
+
 .wrap_dashboard {
     display: flex;
     justify-content: center;
     padding: 10rem;
     gap: 10rem;
-    
+
 }
+
 .wrap_dashboard a {
     color: black;
 }
+
 .wrap_dashboard p {
     text-align: center;
     padding: 1rem;
     font-size: 2rem;
     color: white;
-    
+
 }
-.card  a {
+
+.card a {
     color: black;
 
 }
+
 .card1 {
-   
+
     background-color: var(--color2);
     padding: 4rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: transform .5s;
 }
+
 .card1:hover, .card2:hover, .card3:hover {
     -ms-transform: scale(1.2); /* IE 9 */
     -webkit-transform: scale(1.2); /* Safari 3-8 */
     transform: scale(1.2);
     border: 5px solid black;
 }
+
 .card2 {
-    background-color:  #00b894;
+    background-color: #00b894;
     padding: 4rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: transform .5s;
 }
+
 .card3 {
-    background-color:  rgb(195, 0, 255);
+    background-color: rgb(195, 0, 255);
     padding: 4rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: transform .5s;
 }
+
 #icones {
     display: flex;
     justify-content: center;
@@ -413,26 +453,31 @@ table {
     margin: 0 auto;
     margin-top: 5rem;
     font-size: 1.5rem;
-  }
-  table a {
-      color: black;
-  }
-  
-  td, th {
+}
+
+table a {
+    color: black;
+}
+
+td, th {
     border: 1px solid #000000;
     padding: 8px;
-  }
-  td {
-      text-align: center;
-  }
+}
+
+td {
+    text-align: center;
+}
+
 thead {
     background: var(--color3);
     color: white;
 }
+
 .vaccins thead {
     background-color: #00B894;
 }
-  .retour {
+
+.retour {
     display: flex;
     justify-content: center;
     color: black;
@@ -444,64 +489,76 @@ thead {
     text-align: center;
     border-radius: 40px;
     font-size: 24px;
-  }
-  .retour:hover {
-      color: var(--color1);
-  }
-  .wrap_users a {
-      color: black;
-  }
-  .wrap_users h2 {
-      padding: 1rem 0rem;
-      
-  }
-  .wrap_users h1 {
-      text-align: center;
-      padding: 1rem 0rem;
-  }
-  .back_button a {
-      color: black;
-  }
-  /* SHOW */
+}
 
-  .contenu {
-      display: flex;
-      flex-direction: column;
-      border: 2px solid black;
-      padding: 3.5rem;
-      margin-top: 5rem;
-      font-size: 2rem;
-      border-radius: 40px;
-      border: none;
-      background-color: var(--color3);
-      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-      color: white;
-      
-  }
-  .wrap_show {
+.retour:hover {
+    color: var(--color1);
+}
+
+.wrap_users a {
+    color: black;
+}
+
+.wrap_users h2 {
+    padding: 1rem 0rem;
+
+}
+
+.wrap_users h1 {
+    text-align: center;
+    padding: 1rem 0rem;
+}
+
+.back_button a {
+    color: black;
+}
+
+/* SHOW */
+
+.contenu {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    padding: 3.5rem;
+    margin-top: 5rem;
+    font-size: 2rem;
+    border-radius: 40px;
+    border: none;
+    background-color: var(--color3);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    color: white;
+
+}
+
+.wrap_show {
     display: flex;
     justify-content: center;
-  }
-  .wrap_show h1 {
-      text-align: center;
-      margin: 2rem 0rem;
-  }
-  /* UPDATE */
+}
 
-  .wrap_update {
-    width:100%;
+.wrap_show h1 {
+    text-align: center;
+    margin: 2rem 0rem;
+}
+
+/* UPDATE */
+
+.wrap_update {
+    width: 100%;
     max-width: 500px;
     margin: 0 auto;
     padding: 0 1rem;
     margin-top: 5rem;
 }
+
 .wrap_update h1 {
     text-align: center;
     padding: 1rem;
 }
+
 .wrap_update h3 {
     margin: 1rem 0rem;
 }
+
 form {
     background: var(--color3);
     padding: 3rem 2rem;
@@ -510,7 +567,7 @@ form {
 
 /* PAGE INSCRIPTIONS */
 
-#formulaire_inscription .form_input{
+#formulaire_inscription .form_input {
     width: 60%;
     margin: 0 auto;
 }
@@ -537,8 +594,9 @@ form {
 .perso_input {
     flex-direction: row;
     align-items: center;
-    width: 67%!important;
+    width: 67% !important;
 }
+
 .perso_input label {
     margin-top: 1rem;
 }
@@ -550,6 +608,7 @@ form {
 #password {
     position: relative;
 }
+
 .show_pop_up_mdp {
     position: absolute;
     bottom: 340px;
@@ -563,6 +622,7 @@ form {
 .cacher {
     display: none;
 }
+
 .d_on {
     display: block;
 }
@@ -587,18 +647,22 @@ form {
     background-color: var(--color3);
     border-radius: 10px;
 }
+
 .all_button {
     display: flex;
     flex-direction: column;
 }
+
 .all_button button {
     padding: 1rem;
     margin-bottom: 1rem;
 }
+
 .one_box h2 {
     margin-bottom: 3rem;
     font-size: 2rem;
 }
+
 #block2 h2 {
     text-align: center;
 }
@@ -606,6 +670,7 @@ form {
 #block2 span {
     margin-right: 5rem;
 }
+
 #block2 p {
     font-size: 1.5rem;
     margin-bottom: 0.7rem;
@@ -636,6 +701,7 @@ form {
     flex-wrap: wrap;
     justify-content: center;
 }
+
 .one_show {
     border-radius: 15px;
     background-color: var(--color3);
@@ -645,10 +711,12 @@ form {
     width: 400px;
     padding: 1rem;
 }
+
 /* pagination */
 .pagination {
     text-align: center;
 }
+
 .bouton_pagination {
     margin-right: 0.5rem;
     color: white;
@@ -684,6 +752,7 @@ input[type=submit] {
 #check, .checkbtn {
     display: none;
 }
+
 .burger {
     display: flex;
 }
@@ -691,12 +760,13 @@ input[type=submit] {
 
 /* RESPONSIVE */
 
-@media (max-width : 600px) { /* MOBILE */
-
+@media (max-width: 600px) {
+    /* MOBILE */
     /* NAVBAR */
     header img {
         margin-left: 1rem;
     }
+
     .nav_burger {
         position: relative;
     }
@@ -708,40 +778,46 @@ input[type=submit] {
         top: 0;
         right: 0;
     }
-    ul {
+
+    header ul {
         position: fixed;
         width: 100%;
         height: 100vh;
-        top: 100px; 
+        top: 100px;
         left: -200%;
         text-align: center;
         transition: all .5s;
     }
+
     nav ul li {
         display: block;
         margin: 50px;
         line-height: 30px;
-        
+
     }
+
     nav ul li a {
         font-size: 20px;
         color: black;
     }
-    #check:checked~ul {
+
+    #check:checked ~ ul {
         left: 0;
     }
+
     .burger {
         background-color: var(--color3);
         display: flex;
         flex-direction: column;
         align-items: center;
     }
+
     #password {
         position: inherit;
     }
-     /* Login */
 
-     .wrap_page_connexion {
+    /* Login */
+    .wrap_page_connexion {
         width: 800px;
         margin: 0 auto;
         display: flex;
@@ -750,28 +826,34 @@ input[type=submit] {
         justify-content: center;
         align-items: center;
     }
+
     #formulaire_inscription .form_input {
-        width: 100%; 
-      
-   }
+        width: 100%;
+
+    }
+
     .partie_left, .partie_right {
-       
+
         padding: 0rem 30px;
         width: 400px;
-        
+
     }
+
     .partie_left p {
         text-align: center;
         margin-top: 2rem;
         font-size: inherit;
         line-height: inherit;
     }
+
     main h1 {
         font-size: 27px;
     }
+
     main label {
         font-size: initial;
     }
+
     footer div {
         display: flex;
         justify-content: space-between;
@@ -779,11 +861,10 @@ input[type=submit] {
         font-size: 12px;
         gap: 14px;
         padding: 0rem 15px;
-       
+
     }
 
     /* INSCRIPTION */
-
     .wrap_page_inscription {
         max-width: 90%;
         width: 550px;
@@ -792,86 +873,134 @@ input[type=submit] {
         padding-top: 1rem;
     }
 
-       /* Dashboard */
+    /* Dashboard */
+    header {
 
-       header {
-       
         width: 660px;
-        
+
     }
+
     .card1, .card2, .card3 {
         width: 300px;
         display: flex;
         flex-direction: column;
         margin: 0 auto;
     }
+
     .wrap_dashboard {
 
         display: flex;
         flex-direction: column;
     }
+
     input#date_de_naissance {
         width: 100%;
     }
+
     label.cgu {
         margin-left: 1rem;
+
+    }
+    /* Page Utilisateur*/
+    .one_box h2{
+        font-size: 25px;
+        text-align: center;
+    }
+    .one_box h3 {
+        font-size: 20px;
+    }
+    .one_box p, .one_box a {
+        font-size: 15px;
     }
 }
 
-@media screen and (max-width:350px) { /* PETIT MOBILE */
+@media screen and (max-width: 350px) {
+    /* PETIT MOBILE */
+    /* NAVBAR */
+    .checkbtn {
+        display: block;
+        margin-right: 8rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
 
-    
-    
-   /* NAVBAR */
+    .contenue_left {
 
-.checkbtn {
-    display: block;
-    margin-right: 8rem;
-    position: absolute;
-    top: 0;
-    right: 0;
+        margin: 0rem 1rem;
+    }
+
+    .formulaire_connexion {
+
+        margin: 2rem 1.5rem;
+    }
+
+    /* INSCRIPTION */
+    .wrap_page_inscription {
+        max-width: 100%;
+        width: 550px;
+        margin: 0 auto;
+        margin-bottom: 2rem;
+        padding-top: 1rem;
+    }
+
+    #formulaire_inscription .form_input {
+        width: 100%;
+
+    }
+
+    label.cgu {
+        margin-left: 1rem;
+        font-size: 10px;
+    }
+
+    input#date_de_naissance {
+        width: 100%;
+    }
+
+    i.fas.fa-undo {
+        margin-left: 1rem;
+    }
+
+
 }
-.contenue_left {
-    
-    margin: 0rem 1rem;
+@media screen and (max-width: 500px) {
+    .main_accueil_user {
+        text-align: center;
+    }
+    .main_accueil_user .all_button {
+        display: none;
+    }
+    .wrap_accueil_user {
+        justify-content: center;
+    }
+    .one_box {
+        display: block;
+    }
+    #block2 p {
+        font-size: 15px;
+    }
+    .main_accueil_user .wrap_page_inscription {
+        width: 300px;
+    }
+    .main_accueil_user .wrap_page_inscription form{
+        padding: 0;
+    }
+    .main_accueil_user form .form_input {
+        align-items: center;
+    }
+    .main_accueil_user select, .main_accueil_user input {
+        width: 80%;
+    }
 }
 
-.formulaire_connexion {
-    
-    margin: 2rem 1.5rem;
-} 
-/* INSCRIPTION */
 
-.wrap_page_inscription {
-    max-width: 100%;
-    width: 550px;
-    margin: 0 auto;
-    margin-bottom: 2rem;
-    padding-top: 1rem;
-} 
- #formulaire_inscription .form_input {
-    width: 100%; 
-  
-}
-label.cgu {
-    margin-left: 1rem;
-    font-size: 10px;
-} 
- input#date_de_naissance {
-    width: 100%;
-}    
- i.fas.fa-undo {
-    margin-left: 1rem;
-}
-   
-
-}
-
-@media screen and (min-width:900px) { /* TABLETTE */
-
+@media screen and (min-width: 900px) {
+    /* TABLETTE */
     main {
         padding-bottom: 44vh;
     }
+
     .formulaire_connexion {
         display: flex;
         flex-direction: column;
@@ -881,8 +1010,9 @@ label.cgu {
         border-radius: 30px;
     }
 }
-@media (min-width:760px) and (max-width:800px)   { /* IPAD PRO */
 
+@media (min-width: 760px) and (max-width: 800px) {
+    /* IPAD PRO */
     .contenue_left {
         background-color: rgba(157, 162, 194, 0.62);
         padding: 1rem;
@@ -891,46 +1021,62 @@ label.cgu {
         margin-left: 1rem;
         border-radius: 30px;
     }
+
     main {
         padding-bottom: 256px;
     }
-   
+
 }
 
-@media screen and (max-width:290px) { /* Galaxy Fold */
+@media (max-width: 950px) {
+    .one_box {
+        width: auto;
+    margin-bottom: 1rem;
+    }
+}
 
+
+@media screen and (max-width: 290px) {
+    /* Galaxy Fold */
     /* LOGIN */
     .formulaire_connexion {
         margin: 2rem 2.5rem;
     }
+
     .contenue_left {
         margin: 0rem 2.5rem;
     }
-    
+
     form label, form a, .inscription.force_droite {
         font-size: 14px;
     }
+
     .formulaire_connexion .input_submit {
         width: 135px;
         font-size: 14px;
         padding: 0.5rem;
-        
-       
+
+
     }
+
     .partie_left p {
         font-size: 14px;
     }
+
     main h1 {
         font-size: 20px;
     }
+
     .checkbtn {
-        margin-right: 10rem  
+        margin-right: 10rem
     }
+
     ul {
         top: 99px;
     }
+
     /* INSCRIPTION */
     .form_input input {
-        font-size: 14px;      
-}
+        font-size: 14px;
+    }
 }

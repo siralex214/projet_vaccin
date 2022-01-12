@@ -2,7 +2,6 @@
 require_once "../inclu/function.php";
 require_once "../inclu/pdo.php";
 $id = $_SESSION['id'];
-$sup = false;
 $verif_exist = $pdo->prepare("SELECT * FROM users WHERE id = :id");
 $verif_exist->bindValue(":id", $id, PDO::PARAM_INT);
 $verif_exist->execute();
@@ -11,21 +10,24 @@ if (!$user) {
     header("location: ./accueil_user.php");
     die();
 }
-if (!empty($_GET['sup']) == "true") {
-    $sup = true;
+
+if (!empty($_GET['sup'])) {
+
+    if ($_GET['sup'] == "true") {
+        $delete_vaccin = $pdo->prepare("DELETE FROM vaccins WHERE id_user = :id");
+        $delete_vaccin->bindValue(":id", $id, PDO::PARAM_INT);
+        $delete_vaccin->execute();
+        $delete_user = $pdo->prepare("DELETE FROM users WHERE id = :id");;
+        $delete_user->bindValue(":id", $id, PDO::PARAM_INT);
+        $delete_user->execute();
+        $sup = false;
+        session_unset();
+        header("location: ../index.php");
+    } else {
+        header("location: ./accueil_user.php");
+    }
 }
 
-if ($sup == true) {
-    $delete_vaccin = $pdo->prepare("DELETE FROM vaccins WHERE id_user = :id");
-    $delete_vaccin->bindValue(":id", $id, PDO::PARAM_INT);
-    $delete_vaccin->execute();
-    $delete_user = $pdo->prepare("DELETE FROM users WHERE id = :id");;
-    $delete_user->bindValue(":id", $id, PDO::PARAM_INT);
-    $delete_user->execute();
-    $sup = false;
-    session_unset();
-    header("location: ../index.php");
-}
 ?>
 
 
@@ -44,7 +46,7 @@ if ($sup == true) {
 </head>
 <body>
 <?php include_once "./inclu/header.php";
-if ($sup == false) { ?>
+if (empty($_GET['sup'])) { ?>
     <main style="text-align: center">
         <h2>Voulez vous vraiment supprimer votre compte?</h2>
         <div style="color: black; margin-top: 1rem">

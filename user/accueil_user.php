@@ -2,7 +2,6 @@
 require_once "../inclu/pdo.php";
 require_once "../inclu/function.php";
 
-
 if (empty($_SESSION['connecter'])) {
     header("location: ../index.php");
     die();
@@ -15,7 +14,42 @@ if ($_SESSION['id'] != $_GET['id']) {
     header("location: ./accueil_user.php?id=" . $_SESSION['id']);
     die();
 }
+// envoie mail de rappel
+$id = $_SESSION['id'];
+$all_vaccins = $pdo->prepare("SELECT * FROM vaccins WHERE id_user = $id");
+$all_vaccins->execute();
+$all_vaccins = $all_vaccins->fetchAll();
+foreach ($all_vaccins as $vaccin) {
+    $date_injection = new DateTime($vaccin['date_injection']);
+    $date_injection->add(new DateInterval('P10M'));               //Où 'P10M' indique 'Période de 10 Mois'
+    $date_rappel = $date_injection->format('d-m-Y');               // date du prochain vaccin
+    $date_injection->sub(new DateInterval('P20D'));               // supprime 20 jours pour permettre de faire un rappel par mail
+    $limite_rappel = $date_injection->format('d-m-Y');
+    $aujourdhui_format_fr = date("d-m-Y");                         // récupere la date d'aujourd'hui au format FR
+    $aujourdhui_format_fr = strtotime($aujourdhui_format_fr);             // transforme le jour en timestamp
+    $limite_rappel = strtotime($limite_rappel);                            // transforme le jour en timestamp
+    if ($aujourdhui_format_fr >= $limite_rappel) {
+        $dest = $_SESSION['email'];
+        $sujet = "Rappel de vaccination";
+        $corp = "Bonjour,
+                    Ceci est un mail automatique, merci de ne pas répondre.
+                    
+                        Vous êtes éligible pour effectuer une nouvelle dose de vaccin contre: " . $vaccin['type_vaccin'] . "
+                        Rendez vous sur: http://localhost/projet_vaccin/index.php pour plus d'information.";
+        $headers = "From: sosvaccin@gmail.com";
+        if ($vaccin['mail_rappel'] == 0) {
+            $rappel = 1;
+            mail($dest, $sujet, $corp, $headers);
+            $update_rappel = $pdo->prepare("UPDATE `vaccins` SET `mail_rappel` = :rappel WHERE id = :id_vaccin AND id_user = :id_user");
+            $update_rappel->bindValue(":rappel", $rappel, PDO::PARAM_INT);
+            $update_rappel->bindValue(":id_vaccin", $vaccin['id'], PDO::PARAM_INT);
+            $update_rappel->bindValue(":id_user", $id, PDO::PARAM_INT);
+            $update_rappel->execute();
+        }
+    }
 
+}
+// fin envoie mail de rappel
 
 $info_user = $pdo->prepare("SELECT * FROM users where id =" . $_SESSION['id']);
 $info_user->execute();
@@ -34,7 +68,6 @@ $last_vaccin->execute();
 $last_vaccin = $last_vaccin->fetchAll();
 
 if (!empty($_POST['submitted'])) {
-    debug($_POST);
     foreach ($_POST as $key => $value) {
         $_POST[$key] = xss($value);
     }
@@ -125,22 +158,6 @@ if (!empty($_POST['submitted'])) {
                             $date_rappel = $date_injection->format('d-m-Y');               // date du prochain vaccin
                             $date_injection->sub(new DateInterval('P20D'));               // supprime 20 jours pour permettre de faire un rappel par mail
                             $limite_rappel = $date_injection->format('d-m-Y');             //stockage du jour du jour du rappel de vaccination
-                            $aujourdhui_format_fr = date("d-m-Y");                         // récupere la date d'aujourd'hui au format FR
-                            $aujourdhui_format_fr = strtotime($aujourdhui_format_fr);             // transforme le jour en timestamp
-                            $limite_rappel = strtotime($limite_rappel);                            // transforme le jour en timestamp
-                            if ($aujourdhui_format_fr >= $limite_rappel) {
-                                $dest = "sosvaccin@gmail.com";
-                                $sujet = "Rappel de vaccination";
-                                $corp = "Bonjour,
-                                Ceci est un mail automatique, merci de ne pas répondre.
-                                
-                                    Vous êtes éligible pour effectuer une nouvelle dose de vaccin contre: " . $vaccin['type_vaccin'] . "
-                                    Rendez vous sur: http://localhost/projet_vaccin/index.php pour plus d'information.";
-                                $headers = "From: sosvaccin@gmail.com";
-//                                if (mail($dest, $sujet, $corp, $headers)) {
-//                                } else {
-//                                }
-                            }
                             ?>
                             <li style="margin-bottom: 0.5rem">Prochaine vaccination le: <span
                                         style="color: white"> <?= $date_rappel ?></span> contre: <span
@@ -166,6 +183,7 @@ if (!empty($_POST['submitted'])) {
             </div>
             <div id="block3" class="one_box cacher">
                 <section class="wrap_page_inscription">
+                    <h2>Ajouter un vaccin</h2>
                     <form action="" method="post">
                         <div class="form_input">
                             <label for="type_vaccin">Type du vaccin</label>
@@ -184,11 +202,11 @@ if (!empty($_POST['submitted'])) {
                                 </option>
                                 <option value="Fièvre typhoïde">Fièvre typhoïde
                                 </option>
-                                <option  value="Grippe (influenza)">Grippe (influenza)
+                                <option value="Grippe (influenza)">Grippe (influenza)
                                 </option>
-                                <option  value="Haemophilus influenzae b">Haemophilus influenzae b
+                                <option value="Haemophilus influenzae b">Haemophilus influenzae b
                                 </option>
-                                <option  value="Hépatite A">Hépatite A
+                                <option value="Hépatite A">Hépatite A
                                 </option>
                                 <option value="Hépatite B">Hépatite B
                                 </option>
