@@ -20,7 +20,6 @@
             <?php } else { ?>
                 <li><a href="./logout.php"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
             <?php } ?>
-            <li><a href="./back/dashboard.php"><i class="fas fa-tools"></i> Admin</a></li>
             </ul>
             </nav>
         </div>
