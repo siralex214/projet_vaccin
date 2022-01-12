@@ -267,7 +267,7 @@ main h1 {
     display: flex;
 }
  .background_contact {
-    background: url(../img/background/call.jpg) center/cover  ;
+    background: url(../img/background/call.jpg) center/cover no-repeat  ;
    
     
    
@@ -816,6 +816,18 @@ input[type=submit] {
     label.cgu {
         margin-left: 1rem;
     }
+    /* CONTACT */
+    .background_contact {
+        background: initial;
+    }
+    footer {
+        position: initial;
+    }
+    .wrap_contact {
+        margin-bottom: 2rem;
+        max-width: 350px;
+    }
+    
 }
 
 @media screen and (max-width:350px) { /* PETIT MOBILE */

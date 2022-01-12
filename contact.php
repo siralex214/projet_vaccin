@@ -14,10 +14,11 @@ require_once "./inclu/pdo.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Nous contacter</title>
+    <title>SOS-Vaccin | Contact |</title>
 </head>
 <body class="background_contact">
 <?php include_once "./inclu/header.php"; ?>
+<main class="main_connexion">
 <div class="wrap_bloc">
     <div class="wrap_contact">
         <form action="" method="post" id="formulaire_general">
@@ -40,6 +41,7 @@ require_once "./inclu/pdo.php";
     </div>
   
 </div>
+</main>
 
 
 
