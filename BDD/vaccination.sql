@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 06 jan. 2022 à 19:28
+-- Généré le : mar. 11 jan. 2022 à 14:55
 -- Version du serveur : 10.4.21-MariaDB
 -- Version de PHP : 8.0.12
 
@@ -80,7 +80,26 @@ CREATE TABLE `vaccins` (
 --
 
 INSERT INTO `vaccins` (`id`, `id_user`, `nom_du_vaccin`, `date_injection`, `type_vaccin`) VALUES
-(1, 1, 'grippe', '2022-01-03 14:16:49', 'sdqqshdjkqshd');
+(1, 1, 'grippe', '2022-01-03 14:16:49', 'sdqqshdjkqshd'),
+(2, 2, 'covid 19', '2020-12-02 09:07:49', 'covid 19'),
+(3, 2, 'Efluelda', '2022-01-03 09:07:49', 'grippe'),
+(4, 2, '3', '2022-01-03 09:07:49', 'covid 19'),
+(5, 2, 'Efluelda', '2021-11-09 09:07:49', 'grippe'),
+(6, 1, 'grippe', '2022-01-03 14:16:49', 'sdqqshdjkqshd'),
+(7, 2, 'covid 19', '2020-12-02 09:07:49', 'covid 19'),
+(8, 2, 'Efluelda', '2022-01-03 09:07:49', 'grippe'),
+(9, 2, '3', '2022-01-03 09:07:49', 'covid 19'),
+(10, 2, 'Efluelda', '2021-11-09 09:07:49', 'grippe'),
+(11, 1, 'grippe', '2022-01-03 14:16:49', 'sdqqshdjkqshd'),
+(12, 2, 'covid 19', '2020-12-02 09:07:49', 'covid 19'),
+(13, 2, 'Efluelda', '2022-01-03 09:07:49', 'grippe'),
+(14, 2, '3', '2022-01-03 09:07:49', 'covid 19'),
+(15, 2, 'Efluelda', '2021-11-09 09:07:49', 'grippe'),
+(16, 1, 'grippe', '2022-01-03 14:16:49', 'sdqqshdjkqshd'),
+(17, 2, 'covid 19', '2020-12-02 09:07:49', 'covid 19'),
+(18, 2, 'Efluelda', '2022-01-03 09:07:49', 'grippe'),
+(19, 2, '3', '2022-01-03 09:07:49', 'covid 19'),
+(20, 2, 'Efluelda', '2021-11-09 09:07:49', 'grippe');
 
 --
 -- Index pour les tables déchargées
@@ -125,7 +144,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `vaccins`
 --
 ALTER TABLE `vaccins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Contraintes pour les tables déchargées

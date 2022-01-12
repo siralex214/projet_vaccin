@@ -57,11 +57,12 @@ $vaccins = $recup_all_vaccin->fetchAll();
             $date_rappel = $date_traitement->format("d-m-Y");?>
                 <div class="one_show">
                     <h4>Nom du vaccin: <span style="color: white"><?= $vaccin['nom_du_vaccin'] ?></span></h4>
+                    <p>Type du vaccin: <span style="color: white"><?= $vaccin['type_vaccin'] ?> </span> </p>
                     <p>Date d'injection: <span style="color: white"><?= $date_injection ?> </span> </p>
                     <p>Prochaine vaccination le: <span style="color: white"><?= $date_rappel ?> </span> </p>
                     <div style="font-size: 1.8rem;display: flex; justify-content: space-around;margin-top: 1rem">
                         <a style="color: red" href="./delete_vaccin.php?id=<?= $vaccin['id'] ?>"><i class="fas fa-trash-alt"></i></a>
-                        <a style="color: black" href="./update_vaccin?id=<?= $vaccin['id'] ?>"><i class="far fa-edit"></i></a>
+                        <a style="color: black" href="./update_vaccin.php?id=<?= $vaccin['id'] ?>"><i class="far fa-edit"></i></a>
                     </div>
                 </div>
             <?php endforeach; ?>
