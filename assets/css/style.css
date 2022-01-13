@@ -756,6 +756,11 @@ input[type=submit] {
     display: flex;
 }
 
+/* STATISTIQUES */
+.stat {
+    width: 50%;
+    margin-top: 2%;
+}
 
 /* RESPONSIVE */
 
@@ -1133,3 +1138,4 @@ input[type=submit] {
         font-size: 14px;
     }
 }
+
