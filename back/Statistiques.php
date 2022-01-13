@@ -7,6 +7,12 @@ ini_set( 'display_errors', true );
 require_once('jpgraph/jpgraph.php');
 require_once('jpgraph/jpgraph_pie.php');
 include('../inclu/function.php');
+require_once "../inclu/pdo.php";
+if (!isset($_SESSION['role']) || $_SESSION['role'] === "role_USER") {
+    echo "<script> window.location.href = '../index.php'</script>"; /* lorsque header ("location: " ...) beug */
+    die();
+}
+
 function console_log( $data ){
   echo '<script>';
   echo 'console.log('. json_encode( $data ) .')';
@@ -36,12 +42,7 @@ $data = array(4, 4, 4, 8);
 //   } else {
 //   echo 'PDO KO'; 
 //   }
-  $dsn = 'mysql:host=localhost;dbname=vaccination;port=3306;'; // Chaîne de connection à la base de donnée (Mysql)
-  // $pdo = new PDO($dsn, 'root' , 'root'); 
-  try { // Permet de gérer les erreurs qui peuvent arriver lorsqu'on éxécute une ou des lignes de codes
-        // 1ere étape = Création de l'objet pour se connecter, 2eme = Initialisation de la requête, 3eme = demande l'execution et recupere les résultat
-    $pdo = new PDO($dsn, 'root' , 'root'); // Création de l'objet pour se connecter à la base
-    $query = $pdo->query("SELECT id_user, nom_du_vaccin, COUNT(*) nbfois FROM vaccins GROUP BY id_user, nom_du_vaccin"); // Initialisation de la requête ,Mettre des données préliminaires 
+    $query = $pdo->query("SELECT id_user, nom_du_vaccin, COUNT(*) nbfois FROM vaccins GROUP BY id_user, nom_du_vaccin"); // Initialisation de la requête ,Mettre des données préliminaires
     $resultat = $query->fetchAll();
     // print_r($resultat);
     $tableau_nb_vac = [] ;
@@ -60,13 +61,6 @@ $data = array(4, 4, 4, 8);
     // print_r($tableau_nomvac);
     $data_nomvac = $tableau_nomvac;
 
-  }
-  catch (PDOException $exception) { 
-     
-    mail('VOTRE_EMAIL', 'PDOException', $exception->getMessage());
-    exit('Erreur de connexion à la base de données');
-    
-   }
 
 // Create the Pie Graph. 
 // $graph = new PieGraph(350, 250);
@@ -121,7 +115,7 @@ $data = array(4, 4, 4, 8);
 
 ?>
   </div>
-  <div>
+  <div style="text-align: center">
     <?php
     // Create the Pie Graph. 
 $graph = new PieGraph(350, 250);
@@ -167,12 +161,7 @@ ob_end_clean();
 //   } else {
 //   echo 'PDO KO'; 
 //   }
-  $dsn = 'mysql:host=localhost;dbname=vaccination;port=3306;'; // Chaîne de connection à la base de donnée (Mysql)
-  // $pdo = new PDO($dsn, 'root' , 'root'); 
-  try { // Permet de gérer les erreurs qui peuvent arriver lorsqu'on éxécute une ou des lignes de codes
-        // 1ere étape = Création de l'objet pour se connecter, 2eme = Initialisation de la requête, 3eme = demande l'execution et recupere les résultat
-    $pdo = new PDO($dsn, 'root' , 'root'); // Création de l'objet pour se connecter à la base
-    $query = $pdo->query("SELECT * FROM vaccins"); // Initialisation de la requête ,Mettre des données préliminaires 
+    $query = $pdo->query("SELECT * FROM vaccins"); // Initialisation de la requête ,Mettre des données préliminaires
     $resultat = $query->fetchAll(); 
 
     // echo "<br>";
@@ -238,16 +227,9 @@ ob_end_clean();
       
     };
     echo "</table>";
-    }
-    catch (PDOException $exception) { 
-     
-     mail('VOTRE_EMAIL', 'PDOException', $exception->getMessage());
-     exit('Erreur de connexion à la base de données');
-     
-    }
-    
+
 ?> -->
-<img class="stat" src="data:image/png;base64,<?php echo(base64_encode($imageData)); ?>" />
+<img class="stat" src="data:image/png;base64,<?= base64_encode($imageData)?>" />
   </div>
  
 

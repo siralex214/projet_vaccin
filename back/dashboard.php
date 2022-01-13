@@ -67,7 +67,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] === "role_USER") {
            
         </div>
         <div class="card3">
-            <a href=""><i id="icones"class="fas fa-chart-bar fa-10x"></i><p>Statistiques</p></a>
+            <a href="./Statistiques.php"><i id="icones"class="fas fa-chart-bar fa-10x"></i><p>Statistiques</p></a>
             
         </div>
        
