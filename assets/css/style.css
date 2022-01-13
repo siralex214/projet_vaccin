@@ -383,7 +383,12 @@ main h1 {
 
 /* PAGE DASHBOARD */
 .background_dashboard {
-    background-color: var(--color4);
+    
+        background-color: #FFE5D9;
+    
+}
+.header_admin {
+    background-color: #B6594A;
 }
 
 .wrap_dashboard {
@@ -427,7 +432,8 @@ main h1 {
     -ms-transform: scale(1.2); /* IE 9 */
     -webkit-transform: scale(1.2); /* Safari 3-8 */
     transform: scale(1.2);
-    border: 5px solid black;
+    border: 5px solid white;
+    border-radius: 10px;
 }
 
 .card2 {
@@ -454,14 +460,8 @@ main h1 {
 
 /* PAGE USERS */
 table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-    margin: 2rem 0rem;
-    max-width: 800px;
-    margin: 0 auto;
-    margin-top: 5rem;
-    font-size: 1.5rem;
+   
+    table-layout: fixed;
 }
 
 table a {
@@ -475,22 +475,45 @@ td, th {
 
 td {
     text-align: center;
+    word-break: break-word;
 }
+/* TEST */
+table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    margin-top: 2rem;
+    
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+/* TEST */
 
 thead {
-    background: var(--color3);
+    background: #F2B166;
     color: white;
 }
 
 .vaccins thead {
-    background-color: #00B894;
+    background-color: #F2B166;
 }
 
 .retour {
     display: flex;
     justify-content: center;
     color: black;
-    background: var(--color4);
+    background: #F2B166;
     color: white;
     width: 260px;
     padding: 10px;
@@ -503,7 +526,14 @@ thead {
 .retour:hover {
     color: var(--color1);
 }
-
+.wrap_users {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
+    margin: 0rem 2rem;
+}
 .wrap_users a {
     color: black;
 }
@@ -520,6 +550,11 @@ thead {
 
 .back_button a {
     color: black;
+}
+.okay p {
+     
+        margin: 1rem 5rem;
+    
 }
 
 /* SHOW */

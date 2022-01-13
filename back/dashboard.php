@@ -29,7 +29,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] === "role_USER") {
 </head>
 
 <body class="background_dashboard">
-<header>
+<header class="header_admin">
     <section class="left_header">
         <img src="../assets/img/background/mario.png" alt="logo">
     </section>

@@ -30,7 +30,7 @@ $users = $request->fetchAll(); // Tout Récupérer
 </head>
 
 <body>
-<header>
+<header class="header_admin">
     <section class="left_header">
         <img src="../assets/img/background/mario.png" alt="logo">
     </section>
@@ -44,8 +44,8 @@ $users = $request->fetchAll(); // Tout Récupérer
         <h1>Liste des utilisateurs</h1>
       
         <div class="okay">
-            <h2><a class="retour" href="addUsers.php">Ajouter un utilisateur</a></h2>
-            <h2 class="retour"><a class="" href="dashboard.php">Retour</a>
+            <p class="retour"><a class="" href="dashboard.php">Retour</a></p>
+            <p><a class="retour" href="addUsers.php">Ajouter un utilisateur</a></p>
         </div>
 
         <table>
