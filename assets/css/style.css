@@ -7,7 +7,8 @@
 
 @font-face {
     font-family: "raleway";
-    src: url("../font/Raleway-VariableFont_wght.woff2") format("woff2"), url("../font/Raleway-VariableFont_wght.woff") format("woff");
+    src: url("../font/Raleway-VariableFont_wght.woff2") format("woff2"),
+    url("../font/Raleway-VariableFont_wght.woff") format("woff");
 }
 
 a {
@@ -28,6 +29,9 @@ img {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
+body {
+    overflow-x: hidden;
+}
 
 ul {
     list-style: none;
@@ -42,7 +46,6 @@ ul {
     font-weight: bold;
     font-size: 1.1rem;
 }
-
 
 /* header */
 
@@ -87,10 +90,10 @@ header img {
     margin-right: 5px;
 }
 
-
 /* FOOTER */
 
 html {
+
     height: 100%;
 }
 
@@ -101,6 +104,7 @@ body {
 }
 
 footer {
+
     width: 100%;
     height: 100px;
     display: flex;
@@ -120,6 +124,7 @@ footer {
     position: absolute;
     bottom: 0;
 }
+
 
 footer div {
     width: 440px;
@@ -157,6 +162,7 @@ main {
 
 .main_connexion {
     background: url("../img/background/vaccin-Covid.jpg") no-repeat center center/cover;
+
 }
 
 main label {
@@ -180,6 +186,7 @@ main h1 {
     display: flex;
     flex-direction: column;
     border-radius: 30px;
+
 }
 
 .partie_right {
@@ -233,13 +240,13 @@ main h1 {
     cursor: pointer;
 }
 
+
 .perso_error_submit {
     text-align: center;
     margin-top: 0.4rem
 }
 
-.password_forgot,
-.inscription a {
+.password_forgot, .inscription a {
     margin-top: 0.2rem;
     text-decoration: underline;
 }
@@ -256,7 +263,6 @@ main h1 {
     line-height: 2.7rem;
 }
 
-
 /* PAGE CONTACT */
 
 .wrap_contact {
@@ -265,6 +271,8 @@ main h1 {
     margin: 0 auto;
     padding: 0 1rem;
     margin-top: 5rem;
+
+
 }
 
 .wrap_contact i {
@@ -279,19 +287,18 @@ main h1 {
 .wrap_bloc {
     display: flex;
 }
-
-.background_contact {
-    background: url(../img/background/call.jpg) center/cover;
-}
-
+ .background_contact {
+    background: url(../img/background/call.jpg) center/cover no-repeat ;
+   
+    
+   
+} 
 .wrap_contact h2 {
     margin: 1rem 0rem;
     text-align: center;
 }
 
-#formulaire_general input,
-textarea,
-select {
+#formulaire_general input, textarea, select {
     width: 100%;
     padding: .5rem;
     margin-bottom: .5rem;
@@ -320,15 +327,13 @@ select {
     border: 2px solid blue;
 }
 
-.wrap_contact input[type=text],
-textarea {
+.wrap_contact input[type=text], textarea {
     background: transparent;
     border: none;
     border-bottom: 1px solid #ffffff;
 }
 
-.wrap_contact input:focus,
-textarea:focus {
+.wrap_contact input:focus, textarea:focus {
     background-color: black;
     color: white;
 }
@@ -337,18 +342,20 @@ textarea:focus {
     font-size: 1rem;
     opacity: 1;
     color: white;
-}
 
+}
 
 /* PAGE MENTIONS */
 
 .mentions {
+
     margin: 0 auto;
     max-width: 1200px;
     padding: 3rem 4rem;
     background: white;
     margin-top: 5rem;
     margin-bottom: 5rem;
+
 }
 
 .mentions a {
@@ -368,9 +375,7 @@ textarea:focus {
     position: initial;
 }
 
-
 /* PAGE DASHBOARD */
-
 .background_dashboard {
     background-color: var(--color4);
 }
@@ -380,6 +385,7 @@ textarea:focus {
     justify-content: center;
     padding: 10rem;
     gap: 10rem;
+
 }
 
 .wrap_dashboard a {
@@ -391,26 +397,25 @@ textarea:focus {
     padding: 1rem;
     font-size: 2rem;
     color: white;
+
 }
 
 .card a {
     color: black;
+
 }
 
 .card1 {
+
     background-color: var(--color2);
     padding: 4rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: transform .5s;
 }
 
-.card1:hover,
-.card2:hover,
-.card3:hover {
-    -ms-transform: scale(1.2);
-    /* IE 9 */
-    -webkit-transform: scale(1.2);
-    /* Safari 3-8 */
+.card1:hover, .card2:hover, .card3:hover {
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Safari 3-8 */
     transform: scale(1.2);
     border: 5px solid black;
 }
@@ -433,11 +438,11 @@ textarea:focus {
     display: flex;
     justify-content: center;
     color: white;
+
 }
 
 
 /* PAGE USERS */
-
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -453,8 +458,7 @@ table a {
     color: black;
 }
 
-td,
-th {
+td, th {
     border: 1px solid #000000;
     padding: 8px;
 }
@@ -496,6 +500,7 @@ thead {
 
 .wrap_users h2 {
     padding: 1rem 0rem;
+
 }
 
 .wrap_users h1 {
@@ -506,7 +511,6 @@ thead {
 .back_button a {
     color: black;
 }
-
 
 /* SHOW */
 
@@ -522,6 +526,7 @@ thead {
     background-color: var(--color3);
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     color: white;
+
 }
 
 .wrap_show {
@@ -533,7 +538,6 @@ thead {
     text-align: center;
     margin: 2rem 0rem;
 }
-
 
 /* UPDATE */
 
@@ -559,7 +563,6 @@ form {
     padding: 3rem 2rem;
     border-radius: 40px;
 }
-
 
 /* PAGE INSCRIPTIONS */
 
@@ -590,7 +593,7 @@ form {
 .perso_input {
     flex-direction: row;
     align-items: center;
-    width: 67%!important;
+    width: 67% !important;
 }
 
 .perso_input label {
@@ -623,9 +626,7 @@ form {
     display: block;
 }
 
-
 /* page accueil user */
-
 .main_accueil_user {
     margin-top: 1rem;
 }
@@ -672,6 +673,7 @@ form {
 #block2 p {
     font-size: 1.5rem;
     margin-bottom: 0.7rem;
+
 }
 
 .titre_3 {
@@ -679,7 +681,6 @@ form {
     margin-bottom: 0.5rem;
     font-size: 1.6rem;
 }
-
 
 /* PAGE SHOW VACCINS*/
 
@@ -710,9 +711,7 @@ form {
     padding: 1rem;
 }
 
-
 /* pagination */
-
 .pagination {
     text-align: center;
 }
@@ -727,7 +726,6 @@ form {
     margin-right: 0.5rem;
     color: grey;
 }
-
 
 /* PAGE MDP OUBLIéE */
 
@@ -748,11 +746,9 @@ input[type=submit] {
     cursor: pointer;
 }
 
-
 /* BURGER */
 
-#check,
-.checkbtn {
+#check, .checkbtn {
     display: none;
 }
 
@@ -760,6 +756,11 @@ input[type=submit] {
     display: flex;
 }
 
+/* STATISTIQUES */
+.stat {
+    width: 50%;
+    margin-top: 2%;
+}
 
 /* RESPONSIVE */
 
@@ -769,9 +770,11 @@ input[type=submit] {
     header img {
         margin-left: 1rem;
     }
+
     .nav_burger {
         position: relative;
     }
+
     .checkbtn {
         display: block;
         margin-right: 5rem;
@@ -779,7 +782,8 @@ input[type=submit] {
         top: 0;
         right: 0;
     }
-    ul {
+
+    header ul {
         position: fixed;
         width: 100%;
         height: 100vh;
@@ -788,27 +792,34 @@ input[type=submit] {
         text-align: center;
         transition: all .5s;
     }
+
     nav ul li {
         display: block;
         margin: 50px;
         line-height: 30px;
+
     }
+
     nav ul li a {
         font-size: 20px;
         color: black;
     }
-    #check:checked~ul {
+
+    #check:checked ~ ul {
         left: 0;
     }
+
     .burger {
         background-color: var(--color3);
         display: flex;
         flex-direction: column;
         align-items: center;
     }
+
     #password {
         position: inherit;
     }
+
     /* Login */
     .wrap_page_connexion {
         width: 800px;
@@ -819,26 +830,34 @@ input[type=submit] {
         justify-content: center;
         align-items: center;
     }
+
     #formulaire_inscription .form_input {
         width: 100%;
+
     }
-    .partie_left,
-    .partie_right {
+
+    .partie_left, .partie_right {
+
         padding: 0rem 30px;
         width: 400px;
+
     }
+
     .partie_left p {
         text-align: center;
         margin-top: 2rem;
         font-size: inherit;
         line-height: inherit;
     }
+
     main h1 {
         font-size: 27px;
     }
+
     main label {
         font-size: initial;
     }
+
     footer div {
         display: flex;
         justify-content: space-between;
@@ -846,7 +865,9 @@ input[type=submit] {
         font-size: 12px;
         gap: 14px;
         padding: 0rem 15px;
+
     }
+
     /* INSCRIPTION */
     .wrap_page_inscription {
         max-width: 90%;
@@ -855,31 +876,100 @@ input[type=submit] {
         margin-bottom: 2rem;
         padding-top: 1rem;
     }
+
     /* Dashboard */
     header {
+
         width: 660px;
+
     }
-    .card1,
-    .card2,
-    .card3 {
+
+    .card1, .card2, .card3 {
         width: 300px;
         display: flex;
         flex-direction: column;
         margin: 0 auto;
     }
+
     .wrap_dashboard {
+
         display: flex;
         flex-direction: column;
     }
+
     input#date_de_naissance {
         width: 100%;
     }
+
     label.cgu {
         margin-left: 1rem;
+
     }
+    /* Page Utilisateur*/
+    .one_box h2{
+        font-size: 25px;
+        text-align: center;
+    }
+    .one_box h3 {
+        font-size: 20px;
+    }
+    .one_box p, .one_box a {
+        font-size: 15px;
+    }
+
+    /* CONTACT */
+
+    .wrap_contact {
+        
+        margin-bottom: 2rem;
+        max-width: 100%;
+        width: 90%;
+    }
+    footer {
+        position: initial;
+      
+    }
+    form {
+        padding: 0.5rem 2rem;
+    
+    }
+    /* MENTIONS */
+
+    .mentions {
+        padding: 0rem 15px;
+        background: white;
+        margin-top: 2rem;
+        margin-bottom: 5rem;
+    }
+    .background_mentions {
+        background-color: initial;
+    }
+    .background_mentions ul {
+
+        width: 56%;
+    }
+    footer div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        line-height: -15px;
+        font-size: 12px;
+        padding-top: 9px;
+        padding-bottom: 9px;
+        flex-direction: column;
+    }
+    footer {
+        width: 100%;
+        height: 115px;
+        display: flex;
+        background-color: var(--color1);
+        justify-content: center;
+    }
+    
+
 }
 
-@media screen and (max-width:350px) {
+@media screen and (max-width: 350px) {
     /* PETIT MOBILE */
     /* NAVBAR */
     .checkbtn {
@@ -889,12 +979,17 @@ input[type=submit] {
         top: 0;
         right: 0;
     }
+
     .contenue_left {
+
         margin: 0rem 1rem;
     }
+
     .formulaire_connexion {
+
         margin: 2rem 1.5rem;
     }
+
     /* INSCRIPTION */
     .wrap_page_inscription {
         max-width: 100%;
@@ -903,26 +998,64 @@ input[type=submit] {
         margin-bottom: 2rem;
         padding-top: 1rem;
     }
+
     #formulaire_inscription .form_input {
         width: 100%;
+
     }
+
     label.cgu {
         margin-left: 1rem;
         font-size: 10px;
     }
+
     input#date_de_naissance {
         width: 100%;
     }
+
     i.fas.fa-undo {
         margin-left: 1rem;
     }
+
+
+}
+@media screen and (max-width: 500px) {
+    .main_accueil_user {
+        text-align: center;
+    }
+    .main_accueil_user .all_button {
+        display: none;
+    }
+    .wrap_accueil_user {
+        justify-content: center;
+    }
+    .one_box {
+        display: block;
+    }
+    #block2 p {
+        font-size: 15px;
+    }
+    .main_accueil_user .wrap_page_inscription {
+        width: 300px;
+    }
+    .main_accueil_user .wrap_page_inscription form{
+        padding: 0;
+    }
+    .main_accueil_user form .form_input {
+        align-items: center;
+    }
+    .main_accueil_user select, .main_accueil_user input {
+        width: 80%;
+    }
 }
 
-@media screen and (min-width:900px) {
+
+@media screen and (min-width: 900px) {
     /* TABLETTE */
     main {
         padding-bottom: 44vh;
     }
+
     .formulaire_connexion {
         display: flex;
         flex-direction: column;
@@ -931,9 +1064,12 @@ input[type=submit] {
         padding: 2.8rem;
         border-radius: 30px;
     }
+    /* DASHBOARD */
+
+  
 }
 
-@media (min-width:760px) and (max-width:800px) {
+@media (min-width: 760px) and (max-width: 800px) {
     /* IPAD PRO */
     .contenue_left {
         background-color: rgba(157, 162, 194, 0.62);
@@ -943,52 +1079,63 @@ input[type=submit] {
         margin-left: 1rem;
         border-radius: 30px;
     }
+
     main {
         padding-bottom: 256px;
     }
+
 }
 
-@media screen and (max-width:290px) {
+@media (max-width: 950px) {
+    .one_box {
+        width: auto;
+    margin-bottom: 1rem;
+    }
+}
+
+
+@media screen and (max-width: 290px) {
     /* Galaxy Fold */
     /* LOGIN */
     .formulaire_connexion {
         margin: 2rem 2.5rem;
     }
+
     .contenue_left {
         margin: 0rem 2.5rem;
     }
-    form label,
-    form a,
-    .inscription.force_droite {
+
+    form label, form a, .inscription.force_droite {
         font-size: 14px;
     }
+
     .formulaire_connexion .input_submit {
         width: 135px;
         font-size: 14px;
         padding: 0.5rem;
+
+
     }
+
     .partie_left p {
         font-size: 14px;
     }
+
     main h1 {
         font-size: 20px;
     }
+
     .checkbtn {
         margin-right: 10rem
     }
+
     ul {
         top: 99px;
     }
+
     /* INSCRIPTION */
     .form_input input {
         font-size: 14px;
     }
 }
 
-
-/* STATISTIQUES */
-
-.stat {
-    width: 50%;
-    margin-top: 2%;
-}
