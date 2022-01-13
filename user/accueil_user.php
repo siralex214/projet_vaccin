@@ -140,7 +140,7 @@ if (!empty($_POST['submitted'])) {
                         <?php foreach ($last_vaccin as $vaccin) :
                             $date = new DateTime($vaccin['date_injection']);
                             $vaccin['date_injection'] = $date->format("d-m-Y"); ?>
-                            <li style="margin-bottom: 0.5rem;">Vaccinné contre: <span
+                            <li style="margin: 0 1rem;margin-bottom: 0.5rem;">Vaccinné contre: <span
                                         style="color: white"><?= $vaccin['type_vaccin'] ?></span>. Le <span
                                         style="color: white"><?= $vaccin['date_injection'] ?></span></li>
                         <?php endforeach; ?>
@@ -159,7 +159,7 @@ if (!empty($_POST['submitted'])) {
                             $date_injection->sub(new DateInterval('P20D'));               // supprime 20 jours pour permettre de faire un rappel par mail
                             $limite_rappel = $date_injection->format('d-m-Y');             //stockage du jour du jour du rappel de vaccination
                             ?>
-                            <li style="margin-bottom: 0.5rem">Prochaine vaccination le: <span
+                            <li style="margin:0 1rem; margin-bottom: 0.5rem">Prochaine vaccination le: <span
                                         style="color: white"> <?= $date_rappel ?></span> contre: <span
                                         style="color: white"><?= $vaccin ['type_vaccin'] ?></span></li>
                         <?php endforeach; ?>

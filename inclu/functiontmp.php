@@ -1,43 +1,20 @@
 <?php
-
-/**
- * Fonction qui sert à afficher plus simplement une variable de type array
- * @param  array $tableau
- * @return void
- */
 function debug($tableau)
-{
+{ 
     echo '<pre style="height:300px;overflow: scroll; font-size: .8em;padding: 10px;font-family: Consolas, Monospace; background-color: #000;color:#fff;">';
     print_r($tableau);
     echo '</pre>';
 }
-
-/**
- * la fonction xss permet de contrer les failles XSS
- *
- * @param  mixed $value
- * @return void
- */
 function xss($value)
 {
     return trim(strip_tags($value));
 }
-
-/**
- * Permet d'afficher les erreurs
- *
- * @param  array $errors
- * @param  mixed $key
- * @return void
- */
 function viewError($errors, $key)
 {
     if (!empty($errors[$key])) {
         echo $errors[$key];
     }
 }
-
-
 function validTelephone($errors, $key, $tel)
 {
     if (preg_match("#[0][6][- \.?]?([0-9][0-9][- \.?]?){4}$#", $tel) || preg_match("#[0][7][- \.?]?([0-9][0-9][- \.?]?){4}$#", $tel)) {
@@ -46,7 +23,6 @@ function validTelephone($errors, $key, $tel)
     }
     return $errors;
 }
-
 function validEmail($errors, $value, $key = 'mail')
 {
     if (!empty($value)) {
@@ -58,7 +34,6 @@ function validEmail($errors, $value, $key = 'mail')
     }
     return $errors;
 }
-
 function validText($errors, $value, $key, $min, $max)
 {
     if (empty($value)) {
@@ -81,7 +56,6 @@ function validSport($errors, $value, $key, $min, $max)
     }
     return $errors;
 }
-
 function validcodepostal($errors, $value, $key)
 {
     if (empty($value)) {
@@ -92,8 +66,6 @@ function validcodepostal($errors, $value, $key)
     }
     return $errors;
 }
-
-// vérifier que les champs ne soient pas vides
 function verif_empty($key, $errors)
 {
     if (empty($_POST[$key])) {
@@ -101,8 +73,6 @@ function verif_empty($key, $errors)
     }
     return $errors;
 }
-
-// vérification du type pour la valeur du champ 
 function verif_type($key, $type, $errors)
 {
     if ($type === "int") {
@@ -122,3 +92,4 @@ function verif_type($key, $type, $errors)
     }
     return $errors;
 }
+ ?>
