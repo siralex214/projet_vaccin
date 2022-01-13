@@ -6,7 +6,6 @@ if (!empty($_SESSION['connecter'])){
 }
 $registration = false ;
 if (!empty($_POST['submitted'])) {
-    debug($_POST);
     foreach ($_POST as $key => $value) {
         $_POST[$key] = xss($value);
     }

@@ -112,6 +112,7 @@ if (!empty($_POST['submitted'])) {
             </section>
     </main>
     <?php include_once "./inclu/footer.php"; ?>
+    
 </body>
 
 </html>

@@ -45,7 +45,6 @@ if (!empty($_GET["id"])) {
     <section class="right_header">
         <div>
             <a href="../index.php"><i class="fas fa-home"></i> Accueil</a>
-            <a href="./dashboard.php"><i class="fas fa-tools"></i> Admin</a>
         </div>
     </section>
 </header>

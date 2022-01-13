@@ -38,7 +38,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] === "role_USER") {
             <a href="../index.php"><i class="fas fa-home"></i> Accueil</a>
             <a href="../user/accueil_user.php"><i class="fas fa-book"></i>Carnet</a>
             <a href="../logout.php"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
-            <a href="./dashboard.php"><i class="fas fa-tools"></i> Admin</a>
         </div>
     </section>
 </header>

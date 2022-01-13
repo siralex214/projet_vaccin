@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 06 jan. 2022 à 19:28
+-- Généré le : mer. 12 jan. 2022 à 11:17
 -- Version du serveur : 10.4.21-MariaDB
 -- Version de PHP : 8.0.12
 
@@ -58,8 +58,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `role`, `sexe`, `nom`, `prenom`, `date_de_naissance`, `email`, `pwd`, `CGU`) VALUES
 (1, 'role_ADMIN', 'homme', 'mouchon', 'alexis', '2021-06-09', 'admin@admin.com', '$argon2id$v=19$m=65536,t=4,p=1$ZGVEeHdxdDUzYVRtcmc0dQ$adl5h+pJz0pCm4lYH+VWpVJuvqftBlzASiZRN5NrLuA', 1),
-(2, 'role_USER', 'femme', 'mouchon', 'alexis', '2001-04-08', 'user@user.com', '$argon2i$v=19$m=65536,t=4,p=1$NlRscEMwbnA0TmE2UXl4Zg$WR7cQruho7YHgqdNUGiP/aWLRMcfUsLZxgDPn+ykdg4', 1),
-(3, 'role_USER', 'homme', 'mouchon', 'alexis', '0001-01-01', 'email1@gmail.com', '$argon2i$v=19$m=65536,t=4,p=1$R2QzU0V6dzN2d0wwRElLbw$NnElXX/0RD2M2jEFhgJJ4xNlVPmdUiQahIjav4hYooI', 0);
+(9, 'role_USER', 'homme', 'user', 'user', '2001-04-08', 'user@user.com', '$argon2i$v=19$m=65536,t=4,p=1$c3N3MEJicXlBVzkzdk1zQw$eEg8IvpxZlGHOjrmypZs0CgchY0/QBRMAnAFynlWJQA', 0);
 
 -- --------------------------------------------------------
 
@@ -72,15 +71,20 @@ CREATE TABLE `vaccins` (
   `id_user` int(11) NOT NULL,
   `nom_du_vaccin` varchar(100) NOT NULL,
   `date_injection` datetime NOT NULL,
-  `type_vaccin` varchar(100) NOT NULL
+  `type_vaccin` varchar(100) NOT NULL,
+  `mail_rappel` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `vaccins`
 --
 
-INSERT INTO `vaccins` (`id`, `id_user`, `nom_du_vaccin`, `date_injection`, `type_vaccin`) VALUES
-(1, 1, 'grippe', '2022-01-03 14:16:49', 'sdqqshdjkqshd');
+INSERT INTO `vaccins` (`id`, `id_user`, `nom_du_vaccin`, `date_injection`, `type_vaccin`, `mail_rappel`) VALUES
+(1, 1, 'grippe', '2022-01-03 14:16:49', 'sdqqshdjkqshd', 0),
+(6, 1, 'grippe', '2022-01-03 14:16:49', 'sdqqshdjkqshd', 0),
+(11, 1, 'grippe', '2022-01-03 14:16:49', 'sdqqshdjkqshd', 0),
+(16, 1, 'grippe', '2022-01-03 14:16:49', 'sdqqshdjkqshd', 0),
+(24, 9, 'Engerix B 10®', '2022-01-12 10:46:00', 'Méningo-encéphalite à tiques', 0);
 
 --
 -- Index pour les tables déchargées
@@ -119,13 +123,13 @@ ALTER TABLE `mdp_forgot`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `vaccins`
 --
 ALTER TABLE `vaccins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Contraintes pour les tables déchargées
