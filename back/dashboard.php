@@ -34,10 +34,24 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] === "role_USER") {
         <img src="../assets/img/background/mario.png" alt="logo">
     </section>
     <section class="right_header">
-        <div>
-            <a href="../index.php"><i class="fas fa-home"></i> Accueil</a>
-            <a href="../user/accueil_user.php"><i class="fas fa-book"></i>Carnet</a>
-            <a href="../logout.php"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+    <div id="">
+            <nav class="nav_burger">
+
+                <input type="checkbox" id="check">
+                <label for="check" class="checkbtn">
+                    <i class="fas fa-bars"></i>
+                </label>
+
+                <ul class="burger">
+                    <li><a href="../index.php"><i class="fas fa-home"></i> Accueil</a></li>
+                  
+                        <li> <a href="../user/accueil_user.php"><i class="fas fa-book"></i>Carnet</a></li>
+                   
+                        <li><a href="../logout.php"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+                
+                   
+                </ul>
+            </nav>
         </div>
     </section>
 </header>
@@ -58,6 +72,11 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] === "role_USER") {
         </div>
        
     </div>
+
+
+   
+
+ 
 
 
 </body>

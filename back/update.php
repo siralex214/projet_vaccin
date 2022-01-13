@@ -1,13 +1,77 @@
 <?php 
 
-/* session_start();
-if (!isset($_SESSION['id']))
-{
-    header("Location: index.php");
-    die();
-} */  
+// TEST
+require_once "../inclu/pdo.php";
+require_once "../inclu/function.php";
+if (!empty($_SESSION['connecter'])){
+    //header('location: index.php');
+}
+if(isset($_GET['id'])) {
 
-include('../inclu/pdo.php');
+    $id = $_GET['id'];
+    
+    $query = $pdo->prepare("SELECT * FROM users WHERE id = $id");
+    $query->execute();
+    $users = $query->fetch();
+}
+
+$registration = false ;
+if (!empty($_POST['submit'])) {
+    foreach ($_POST as $key => $value) {
+        $_POST[$key] = xss($value);
+    }
+
+    
+// gestion des erreurs
+    $errors = [];
+    $errors = validText($errors, $_POST['nom'], 'nom', 1, 100);
+    $errors = validText($errors, $_POST['prenom'], 'prenom', 1, 100);
+    $errors = verif_empty('date_de_naissance',$errors,"date de naissance");
+    $errors = verif_empty('sexe',$errors);
+    $errors = validEmail($errors, $_POST['email'], 'email');
+
+
+// detection d'un mail dejà présent dans la table
+    $query = $pdo->prepare("SELECT email FROM users WHERE email = :email");
+    $query->bindValue(':email', $_POST['email'], PDO::PARAM_STR);
+    $query->execute();
+    $result = $query->fetch();
+    if ($result) {
+        $errors['double_mail'] = "Cet mail est déjà enregistré";
+    }
+
+
+
+  
+    if (count($errors) === 0) {
+
+// traitement pdo
+        $role = $_POST["role"];
+        $sexe = $_POST["sexe"];
+        $nom = $_POST["nom"];
+        $prenom = $_POST["prenom"];
+        $date = $_POST["date_de_naissance"];
+        $email = $_POST["email"];
+        
+
+        $requestCreation = $pdo->prepare(
+            "UPDATE users SET   role='$role', sexe='$sexe',  nom= '$nom', prenom = '$prenom', date_de_naissance = '$date', email = '$email'  WHERE id = $id"
+        ); 
+        if ($requestCreation->execute()) {
+            header('Location: users.php');
+        } else {
+            echo "Erreur Execution Requête";
+        }
+
+       
+    }
+}
+
+// TEST
+
+
+/* 
+ include('../inclu/pdo.php');
 
 
 if(!isset($_SESSION['role']) || $_SESSION['role'] === "role_USER" ) {
@@ -50,8 +114,8 @@ if (!empty($_POST)) {
             echo "Erreur Execution Requête";
         }
     }
-}
-
+} 
+ */
 
 
 ?>
@@ -89,17 +153,65 @@ if (!empty($_POST)) {
             <div class="range">
         <h1>Modification du profil</h1>
             <h2><a class="retour" href="users.php">Retour</a></h2>
+
+            
+            <label for="">Role</label>
+                <select name="role" id="">
+                <option value="">Choisir une option</option>
+                <option value="role_USER">Utilisateur</option>
+                <option value="role_ ADMIN">Admin</option>
+                </select>
+
+                <label for="">Sexe</label>
+                <select name="sexe" id="">
+                <option value="">Choisir une option</option>
+                <option value="Homme">Homme</option>
+                <option value="Femme">Femme</option>
+                <option value="Autre">Autre</option>
+                <?php if (isset($errors['sexe'])) { ?>
+                    <span class="error"><?php viewError($errors,'sexe')?></span>
+                <?php } else { ?>
+                    <span style="height: 20px"></span>
+                <?php } ?>
+                </select>
+
                 <label for="nom">Nom</label>
                 <input step="any" name="nom" id="nom" value=" <?php if(!empty($users['nom']))  { echo $users['nom']; }  ?>">
+                <?php if (isset($errors['nom'])) { ?>
+                <span class="error"><?php viewError($errors,'nom')?></span>
+                <?php } else { ?>
+                    <span style="height: 20px"></span>
+                <?php } ?>
 
                 <label for="prenom">Prenom</label>
                 <input type="text" name="prenom" id="prenom" value=" <?php if(!empty($users['prenom']))  { echo $users['prenom']; }  ?>">
+                <?php if (isset($errors['prenom'])) { ?>
+                    <span class="error"><?php viewError($errors,'prenom')?></span>
+                <?php } else { ?>
+                    <span style="height: 20px"></span>
+                <?php } ?>
 
                 <label for="date_de_naissance">Date de naissance</label>
                 <input type="date" name="date_de_naissance" id="date_de_naissance" value="<?php if(!empty($users['date_de_naissance']))  { echo $users['date_de_naissance']; }  ?>">
+                <?php if (isset($errors['date_de_naissance'])) { ?>
+                    <span class="error"><?php viewError($errors,'date_de_naissance')?></span>
+                <?php } else { ?>
+                    <span style="height: 20px"></span>
+                <?php } ?>
+
 
                 <label for="email">Email</label>
                 <input type="text" name="email" id="email" value="<?php if(!empty($users['email']))  { echo $users['email']; }  ?>">
+                <?php if (isset($errors['email'])) { ?>
+                        <span class="error"><?php viewError($errors, 'email') ?></span>
+                   
+                    <?php } else { ?>
+                        <span style="height: 20px"></span>
+                    <?php } ?>
+                
+
+              
+
                 
             </div>
 
