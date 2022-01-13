@@ -265,14 +265,19 @@ main h1 {
 
 /* PAGE CONTACT */
 
+.wrap_bloc {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 50px 100px;
+}
 .wrap_contact {
     width: 100%;
     max-width: 700px;
-    margin: 0 auto;
-    padding: 0 1rem;
-    margin-top: 5rem;
-
-
+    /* margin: 0 auto; */
+    padding: 0 1rem;  
 }
 
 .wrap_contact i {
@@ -284,9 +289,6 @@ main h1 {
     width: 100%;
 }
 
-.wrap_bloc {
-    display: flex;
-}
  .background_contact {
     background: url(../img/background/call.jpg) center/cover no-repeat ;
    
@@ -381,10 +383,14 @@ main h1 {
 }
 
 .wrap_dashboard {
-    display: flex;
-    justify-content: center;
-    padding: 10rem;
-    gap: 10rem;
+            display: flex;
+            justify-content: center;
+            padding: 10rem;
+            gap: 7rem;
+            align-items: center;
+            align-content: center;
+            padding: 200px 100px;
+            flex-wrap: wrap;
 
 }
 
@@ -919,6 +925,7 @@ input[type=submit] {
         margin-bottom: 2rem;
         max-width: 100%;
         width: 90%;
+        padding: initial;
     }
     footer {
         position: initial;
@@ -928,6 +935,12 @@ input[type=submit] {
         padding: 0.5rem 2rem;
     
     }
+    .background_contact {
+        background: initial;
+    }
+   
+   
+    
     /* MENTIONS */
 
     .mentions {
@@ -941,7 +954,7 @@ input[type=submit] {
     }
     .background_mentions ul {
 
-        width: 56%;
+        width: 65%;
     }
     footer div {
         display: flex;
@@ -967,6 +980,7 @@ input[type=submit] {
 @media screen and (max-width: 350px) {
     /* PETIT MOBILE */
     /* NAVBAR */
+    
     .checkbtn {
         display: block;
         margin-right: 8rem;
@@ -1013,6 +1027,11 @@ input[type=submit] {
     }
 
 
+}
+@media (min-width: 350px) and (max-width: 550px) {
+    .wrap_bloc {
+        padding: 0rem 0rem;
+    }
 }
 @media screen and (max-width: 500px) {
     .main_accueil_user {
