@@ -1,12 +1,12 @@
-const pop_up_mdp = document.querySelector("#pop_up_mdp")
-const password = document.querySelector("#password")
-console.log("ok")
-if (password != null || pop_up_mdp != null){
-    password.addEventListener("click",function (){
-        pop_up_mdp.classList.remove("cacher")
-        pop_up_mdp.classList.add("show_pop_up_mdp")
-    })
-}
+// const pop_up_mdp = document.querySelector("#pop_up_mdp")
+// const password = document.querySelector("#password")
+// console.log("ok")
+// if (password != null || pop_up_mdp != null){
+//     password.addEventListener("click",function (){
+//         pop_up_mdp.classList.remove("cacher")
+//         pop_up_mdp.classList.add("show_pop_up_mdp")
+//     })
+// }
 
 const button1 = document.querySelector("#button1")
 const button2 = document.querySelector("#button2")

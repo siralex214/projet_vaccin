@@ -181,7 +181,7 @@ if (!empty($_POST['submitted'])) {
                         <span style="height: 20px"></span>
                     <?php } ?>
                 </div>
-                <div id="pop_up_mdp" class="cacher">
+                <div id="pop_up_mdp" class="form_input" >
                     <p>le mot de passe doit contenir:</p>
                     <p>-8 caractères min</p>
                     <p>-1 Majuscule</p>
