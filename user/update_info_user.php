@@ -23,7 +23,7 @@ if (!empty($_POST['submitted'])) {
     $query->execute();
     $result = $query->fetch();
 
-    if ($_POST['email'] === $_SESSION['email']) {
+    if ($_POST['email'] == $_SESSION['email']) {
         // Aucun changement dans le mail
     } elseif ($result) {
         // le mail existe déjà pour un autre utilisateur

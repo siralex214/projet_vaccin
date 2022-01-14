@@ -44,7 +44,7 @@ if (!empty($_POST['submit'])) {
 // traitement pdo
         $sql = "INSERT INTO `users`(`role`, `nom`, `prenom`, `date_de_naissance`, `email`, `pwd`,`sexe`) VALUES (:role, :nom, :prenom, :date_de_naissance, :mail ,:mdp, :sexe) ";
         $query = $pdo->prepare($sql);
-        $query->bindValue(':role', "role_USER", PDO::PARAM_STR);
+        $query->bindValue(':role', $_POST['role'], PDO::PARAM_STR);
         $query->bindValue(':nom', $_POST['nom'], PDO::PARAM_STR);
         $query->bindValue(':prenom', $_POST['prenom'], PDO::PARAM_STR);
         $query->bindValue(':date_de_naissance', $_POST['date_de_naissance'], PDO::PARAM_STR);
@@ -95,11 +95,11 @@ if (!empty($_POST['submit'])) {
             <h2>Ajout d'utilisateurs</h2>
             <form action="#" method="post" id="formulaire_general" class="form_admin">
 
-                 <label for="">Role</label>
-                <select name="role" id="">
+                 <label for="role">Role</label>
+                <select name="role" id="role">
                 <option value="">Choisir une option</option>
                 <option value="role_USER">Utilisateur</option>
-                <option value="role_ ADMIN">Admin</option>
+                <option value="role_ADMIN">Admin</option>
                 </select>
 
                 <label for="">Sexe</label>
