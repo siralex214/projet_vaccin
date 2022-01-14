@@ -1,6 +1,7 @@
 <?php
 
 require_once "../inclu/pdo.php";
+require_once "../inclu/function.php";
 
 
 
@@ -8,7 +9,7 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] === "ROLE_USER"){
     header("Location : ../index.php");
 }
 if (
-    empty($_POST["nom_du_vaccin"]) || empty($_POST["date_injection"])
+    empty($_POST["nom_du_vaccin"]) || empty($_POST["date"])
     || empty($_POST["type_vaccin"])
 ) {
     $error = true;
@@ -16,13 +17,13 @@ if (
     //$session_id = $_SESSION["id"];
         $user = $_POST["id_user"];
         $nomVaccin = $_POST["nom_du_vaccin"];
-        $date = $_POST["date_injection"];
+        $date = $_POST["date"];
         $typeVaccin = $_POST["type_vaccin"];
       
         $requestCreation = $pdo->prepare(
 
         "INSERT INTO `vaccins`(`id_user`,`nom_du_vaccin`, `date_injection`, `type_vaccin` ) 
-            VALUES ('$user','$nomVaccin', '$date','$typeVaccin')"
+            VALUES ($user,'$nomVaccin', '$date','$typeVaccin')"
     );
     if ($requestCreation->execute()) {
         header('Location: vaccins.php');
@@ -30,6 +31,18 @@ if (
         echo "Erreur Execution Requête";
     }
 }
+
+
+
+
+
+
+    
+    $query = $pdo->prepare("SELECT id, nom, prenom FROM users");
+    $query->execute();
+    $users = $query->fetchAll();
+  
+
 
 
 
@@ -66,10 +79,20 @@ if (
         <div class="wrap_contact">
         <h2 class="back_button"><a class="" href="vaccins.php">Retour</a></h2>
             <h2>Ajout des vaccins</h2>
-            <form action="#" method="post" id="formulaire_general">
+            <form action="" method="post" id="formulaire_general" class="form_admin">
 
-                <label for="id_user">ID de l'utilisateur</label>
-                <input type="number" name="user" id="user">
+
+
+                <label for="">ID Utilisateur</label>
+                            <select name="id_user" id="">
+                            <?php foreach ($users as $user) { ?>
+
+                            <option value="<?= $user['id'] ?>"><?php echo $user['nom']. ' ' . $user['prenom']?></option>
+                        
+                            <?php } ?>
+                        </select> 
+
+
 
 
 
@@ -105,7 +128,7 @@ if (
         </form>
     </div>
 
-<?php var_dump($_POST)?>
+
 </body>
 
 </html>

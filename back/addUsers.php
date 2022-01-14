@@ -93,7 +93,7 @@ if (!empty($_POST['submit'])) {
         <div class="wrap_contact">
         <h2 class="back_button"><a class="" href="users.php">Retour</a></h2>
             <h2>Ajout d'utilisateurs</h2>
-            <form action="#" method="post" id="formulaire_general">
+            <form action="#" method="post" id="formulaire_general" class="form_admin">
 
                  <label for="">Role</label>
                 <select name="role" id="">
