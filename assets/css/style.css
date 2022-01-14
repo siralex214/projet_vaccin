@@ -288,11 +288,7 @@ main h1 {
     display: flex;
 }
  .background_contact {
-<<<<<<< HEAD
     background: url(../img/background/call.jpg) center/cover no-repeat  ;
-=======
-    background: url(../img/background/call.jpg) center/cover no-repeat ;
->>>>>>> 09b1ac2d3e628191267c2519f7daea7831a8e5f8
    
     
    
@@ -956,22 +952,6 @@ input[type=submit] {
     .one_box p, .one_box a {
         font-size: 15px;
     }
-<<<<<<< HEAD
-    /* CONTACT */
-    .background_contact {
-        background: initial;
-    }
-    footer {
-        position: initial;
-    }
-    .wrap_contact {
-        margin-bottom: 2rem;
-        max-width: 350px;
-    }
-    
-}
-=======
->>>>>>> 09b1ac2d3e628191267c2519f7daea7831a8e5f8
 
     /* CONTACT */
 
