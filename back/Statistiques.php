@@ -1,6 +1,6 @@
 <?php
-ini_set( 'error_reporting', E_ALL );
-ini_set( 'display_errors', true );
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', true);
 // phpinfo();
 
 // content="text/plain; charset=utf-8"
@@ -13,23 +13,23 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] === "role_USER") {
     die();
 }
 
-function console_log( $data ){
-  echo '<script>';
-  echo 'console.log('. json_encode( $data ) .')';
-  echo '</script>';
+function console_log($data)
+{
+    echo '<script>';
+    echo 'console.log(' . json_encode($data) . ')';
+    echo '</script>';
 }
+
 try {
-  // run your code here
-  $table = [10, 2, 35];
-  // debug($table);
-  // debug([10, 2, 35]); 
-  // console_log('debut');
-}
-catch (Exception $e) {
-  echo $e->getMessage();
-}
-catch (InvalidArgumentException $e) {
-  echo $e->getMessage();
+    // run your code here
+    $table = [10, 2, 35];
+    // debug($table);
+    // debug([10, 2, 35]);
+    // console_log('debut');
+} catch (Exception $e) {
+    echo $e->getMessage();
+} catch (InvalidArgumentException $e) {
+    echo $e->getMessage();
 }
 
 // Some data
@@ -42,24 +42,24 @@ $data = array(4, 4, 4, 8);
 //   } else {
 //   echo 'PDO KO'; 
 //   }
-    $query = $pdo->query("SELECT id_user, nom_du_vaccin, COUNT(*) nbfois FROM vaccins GROUP BY id_user, nom_du_vaccin"); // Initialisation de la requête ,Mettre des données préliminaires
-    $resultat = $query->fetchAll();
-    // print_r($resultat);
-    $tableau_nb_vac = [] ;
-    foreach ($resultat as $vcourant){
-        array_push($tableau_nb_vac, $vcourant['nbfois']);
-    }
-    
-    // print_r($tableau_nb_vac);
-    $data = $tableau_nb_vac;
+$query = $pdo->query("SELECT id_user, nom_du_vaccin, COUNT(*) nbfois FROM vaccins GROUP BY id_user, nom_du_vaccin"); // Initialisation de la requête ,Mettre des données préliminaires
+$resultat = $query->fetchAll();
+// print_r($resultat);
+$tableau_nb_vac = [];
+foreach ($resultat as $vcourant) {
+    array_push($tableau_nb_vac, $vcourant['nbfois']);
+}
 
-    $tableau_nomvac = [] ;
-    foreach ($resultat as $vcourant){
-        array_push($tableau_nomvac, $vcourant['nom_du_vaccin']);
-    }
-    
-    // print_r($tableau_nomvac);
-    $data_nomvac = $tableau_nomvac;
+// print_r($tableau_nb_vac);
+$data = $tableau_nb_vac;
+
+$tableau_nomvac = [];
+foreach ($resultat as $vcourant) {
+    array_push($tableau_nomvac, $vcourant['nom_du_vaccin']);
+}
+
+// print_r($tableau_nomvac);
+$data_nomvac = $tableau_nomvac;
 
 
 // Create the Pie Graph. 
@@ -87,11 +87,11 @@ $data = array(4, 4, 4, 8);
 <html lang="fr">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SOS-vaccin | Statistiques |</title>
-  <link rel="stylesheet" href="../assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOS-vaccin | Statistiques |</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
 
 </head>
 
@@ -110,128 +110,50 @@ $data = array(4, 4, 4, 8);
     </section>
 </header>
 
-<div>
-  <?php console_log('debut2');
-
-?>
-  </div>
-  <div style="text-align: center">
+<div style="text-align: center">
     <?php
     // Create the Pie Graph. 
-$graph = new PieGraph(350, 250);
+    $graph = new PieGraph(350, 250);
 
-$theme_class = "DefaultTheme";
-// $graph->SetTheme(new $theme_class());
-// $graph->graph_theme = null;
+    $theme_class = "DefaultTheme";
+    // $graph->SetTheme(new $theme_class());
+    // $graph->graph_theme = null;
 
-// Set A title for the plot
-$graph->title->Set("titre"); // "->" on LIT une propriété (title) de l'objet. Et ensuite on INVOQUE la méthode de la propriété (Set)
-$graph->SetBox(true);
+    // Set A title for the plot
+    $graph->title->Set("Nombres de vaccinés par vaccins"); // "->" on LIT une propriété (title) de l'objet. Et ensuite on INVOQUE la méthode de la propriété (Set)
+    $graph->SetBox(true);
 
-// // Create
-$p1 = new PiePlot($data);
-$size=0.13;
+    // // Create
+    $p1 = new PiePlot($data);
+    $size = 0.13;
 
-// $p1->SetLegends(array("grippe","3","covid 19","Efluelda"));
-$p1->SetLegends($data_nomvac);
+    // $p1->SetLegends(array("grippe","3","covid 19","Efluelda"));
+    $p1->SetLegends($data_nomvac);
 
-$p1->SetSize($size);
-$p1->SetCenter(0.50,0.75);
-$p1->value->SetFont(FF_FONT0);
-$p1->title->Set("Nombres de vaccinés par vaccins");
-$graph->Add($p1);
+    $p1->SetSize($size);
+    $p1->SetCenter(0.50, 0.75);
+    $p1->value->SetFont(FF_FONT0);
+    //$p1->title->Set("Nombres de vaccinés par vaccins");
+    $graph->Add($p1);
 
-$p1->ShowBorder();
-$p1->SetColor('black');
-$p1->SetSliceColors(array('#1E90FF', '#2E8B57', '#ADFF2F', '#DC143C', '#BA55D3'));
-// $graph->Stroke();
-// print '<img src="data:image/png;base64,'.base64_encode($graph->Stroke()).'" />';
-$img = $graph->Stroke(_IMG_HANDLER);
+    $p1->ShowBorder();
+    $p1->SetColor('black');
+    $p1->SetSliceColors(array('#1E90FF', '#2E8B57', '#ADFF2F', '#DC143C', '#BA55D3'));
+    // $graph->Stroke();
+    // print '<img src="data:image/png;base64,'.base64_encode($graph->Stroke()).'" />';
+    $img = $graph->Stroke(_IMG_HANDLER);
 
-ob_start();
-imagepng($img);
-$imageData = ob_get_contents();
-ob_end_clean();
+    ob_start();
+    imagepng($img);
+    $imageData = ob_get_contents();
+    ob_end_clean();
     ?>
 
 
-<!-- <?php 
-// if (extension_loaded ('PDO')) {
-//   echo 'PDO OK'; 
-//   } else {
-//   echo 'PDO KO'; 
-//   }
-    $query = $pdo->query("SELECT * FROM vaccins"); // Initialisation de la requête ,Mettre des données préliminaires
-    $resultat = $query->fetchAll(); 
 
-    // echo "<br>";
-    // echo "<table border='1'>";
-    // // while ($row = mysqli_fetch_assoc($resultat)) { // Important line !!! Check summary get row on array ..
-    // //     echo "<tr>";
-    // //     foreach ($row as $field => $value) { // I you want you can right this line like this: foreach($row as $value) {
-    // //         echo "<td>" . $value . "</td>"; // I just did not use "htmlspecialchars()" function. 
-    // //     }
-    // //     echo "</tr>";
-    // // }
-    // foreach ($resultat as $enrg){
-    //   echo "<tr>";
-    //   //     foreach ($row as $field => $value) { // I you want you can right this line like this: foreach($row as $value) {
-    //   //         echo "<td>" . $value . "</td>"; // I just did not use "htmlspecialchars()" function. 
-    //   //     }
-    //   echo "<td>";
-    //   print_r($enrg);
-    //   echo "</td>";
-    //   echo "</tr>";
-      
-    // };
-    // echo "</table>";
+    <img class="stat" src="data:image/png;base64,<?= base64_encode($imageData) ?>"/>
+</div>
 
-    echo "<br>";
-    echo "<table border='1'>";
-    // while ($row = mysqli_fetch_assoc($resultat)) { // Important line !!! Check summary get row on array ..
-    //     echo "<tr>";
-    //     foreach ($row as $field => $value) { // I you want you can right this line like this: foreach($row as $value) {
-    //         echo "<td>" . $value . "</td>"; // I just did not use "htmlspecialchars()" function. 
-    //     }
-    //     echo "</tr>";
-    // }
-      echo "<tr>";
-      echo "<th>";
-      print ("id");
-      echo "</th>";
-      echo "<th>";
-      print ("id_user");
-      echo "</th>";
-      echo "<th>";
-      print ("nom_du_vaccin");
-      echo "</th>";
-      echo "</tr>";
-    foreach ($resultat as $enrg){
-      
-      echo "<tr>";
-      //     foreach ($row as $field => $value) { // I you want you can right this line like this: foreach($row as $value) {
-      //         echo "<td>" . $value . "</td>"; // I just did not use "htmlspecialchars()" function. 
-      //     }
-      
-      echo "<td>";
-      print_r($enrg["id"]);
-      echo "</td>";
-      echo "<td>";
-      print_r($enrg["id_user"]);
-      echo "</td>";
-      echo "<td>";
-      print_r($enrg["nom_du_vaccin"]);
-      echo "</td>";
-      echo "</tr>";
-      
-      
-    };
-    echo "</table>";
-
-?> -->
-<img class="stat" src="data:image/png;base64,<?= base64_encode($imageData)?>" />
-  </div>
- 
 
 </body>
 
