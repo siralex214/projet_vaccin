@@ -376,6 +376,11 @@ main h1 {
 }
 
 /* PAGE DASHBOARD */
+
+.wrap_update form, .wrap_show .contenu,  .form_admin {
+    background: #B23D28;
+}
+
 .background_dashboard {
     
         background-color: #FFE5D9;
@@ -389,7 +394,8 @@ main h1 {
     display: flex;
     justify-content: center;
     padding: 10rem;
-    gap: 10rem;
+    gap: 5rem;
+    flex-wrap: wrap;
 
 }
 
@@ -900,6 +906,7 @@ input[type=submit] {
         font-size: 12px;
         gap: 14px;
         padding: 0rem 15px;
+        flex-direction: column;
 
     }
 
@@ -954,6 +961,8 @@ input[type=submit] {
 
     /* CONTACT */
 
+    
+
     .wrap_contact {
         
         margin-bottom: 2rem;
@@ -991,7 +1000,7 @@ input[type=submit] {
         font-size: 12px;
         padding-top: 9px;
         padding-bottom: 9px;
-        flex-direction: column;
+       
     }
     footer {
         width: 100%;
