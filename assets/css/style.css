@@ -904,6 +904,7 @@ input[type=submit] {
         font-size: 12px;
         gap: 14px;
         padding: 0rem 15px;
+        flex-direction: column;
 
     }
 
@@ -1011,7 +1012,7 @@ input[type=submit] {
         font-size: 12px;
         padding-top: 9px;
         padding-bottom: 9px;
-        flex-direction: column;
+       
     }
     footer {
         width: 100%;
